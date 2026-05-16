@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://sunrise-sunset.org/api"
+      }
+      description: "Provides sunset and sunrise times for a given latitude and longitude using a simple REST API. Attribution is required when using this API."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.sunrise-sunset.org"
+        }
+      ]
+      termsOfService: "https://sunrise-sunset.org/terms-of-use"
+      title: "Sunset Times API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
