@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/sunset-times-sdk"
-	"github.com/voxgig-sdk/sunset-times-sdk/core"
+	sdk "github.com/voxgig-sdk/sunset-times-sdk/go"
+	"github.com/voxgig-sdk/sunset-times-sdk/go/core"
 )
 
 func TestSunriseAndSunsetDirect(t *testing.T) {

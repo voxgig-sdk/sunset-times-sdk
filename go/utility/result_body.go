@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/sunset-times-sdk/core"
+import "github.com/voxgig-sdk/sunset-times-sdk/go/core"
 
 func resultBodyUtil(ctx *core.Context) *core.Result {
 	response := ctx.Response

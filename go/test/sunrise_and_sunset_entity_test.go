@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/sunset-times-sdk"
-	"github.com/voxgig-sdk/sunset-times-sdk/core"
+	sdk "github.com/voxgig-sdk/sunset-times-sdk/go"
+	"github.com/voxgig-sdk/sunset-times-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/sunset-times-sdk/go/utility/struct"
 )
 
 func TestSunriseAndSunsetEntity(t *testing.T) {

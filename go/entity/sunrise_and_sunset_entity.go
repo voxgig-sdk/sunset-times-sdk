@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/sunset-times-sdk/core"
+	"github.com/voxgig-sdk/sunset-times-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/sunset-times-sdk/go/utility/struct"
 )
 
 type SunriseAndSunsetEntity struct {

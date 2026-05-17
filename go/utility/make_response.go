@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/sunset-times-sdk/core"
+import "github.com/voxgig-sdk/sunset-times-sdk/go/core"
 
 func makeResponseUtil(ctx *core.Context) (*core.Response, error) {
 	if ctx.Out["response"] != nil {

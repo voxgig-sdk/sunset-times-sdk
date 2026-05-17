@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/sunset-times-sdk/core"
+	"github.com/voxgig-sdk/sunset-times-sdk/go/core"
 )
 
 type LogFeature struct {

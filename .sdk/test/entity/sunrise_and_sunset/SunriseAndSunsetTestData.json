@@ -4,17 +4,20 @@
       "SUNRISE_AND_SUNSET00": {
         "result": {},
         "status": "s1f",
-        "tzid": "s20"
+        "tzid": "s20",
+        "id": "SUNRISE_AND_SUNSET00"
       },
       "SUNRISE_AND_SUNSET01": {
         "result": {},
         "status": "s3d",
-        "tzid": "s3e"
+        "tzid": "s3e",
+        "id": "SUNRISE_AND_SUNSET01"
       },
       "SUNRISE_AND_SUNSET02": {
         "result": {},
         "status": "s5b",
-        "tzid": "s5c"
+        "tzid": "s5c",
+        "id": "SUNRISE_AND_SUNSET02"
       }
     }
   },

@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/sunset-times-sdk/core"
+import "github.com/voxgig-sdk/sunset-times-sdk/go/core"
 
 func makeContextUtil(ctxmap map[string]any, basectx *core.Context) *core.Context {
 	return core.NewContext(ctxmap, basectx)
