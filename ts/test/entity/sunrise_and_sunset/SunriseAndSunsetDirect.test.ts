@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID': {},
     'SUNSETTIMES_TEST_LIVE': 'FALSE',
-    'SUNSETTIMES_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.SUNSETTIMES_TEST_LIVE
 
   if (live) {
     const client = new SunsetTimesSDK({
-      apikey: env.SUNSETTIMES_APIKEY,
     })
 
     let idmap: any = env['SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID']

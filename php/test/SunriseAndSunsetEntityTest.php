@@ -85,7 +85,6 @@ function sunrise_and_sunset_basic_setup($extra)
         "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID" => $idmap,
         "SUNSETTIMES_TEST_LIVE" => "FALSE",
         "SUNSETTIMES_TEST_EXPLAIN" => "FALSE",
-        "SUNSETTIMES_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +96,6 @@ function sunrise_and_sunset_basic_setup($extra)
     if ($env["SUNSETTIMES_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["SUNSETTIMES_APIKEY"],
             ],
             $extra ?? [],
         ]);

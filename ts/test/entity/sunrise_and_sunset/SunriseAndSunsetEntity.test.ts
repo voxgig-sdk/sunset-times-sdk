@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID': idmap,
     'SUNSET_TIMES_TEST_LIVE': 'FALSE',
     'SUNSET_TIMES_TEST_EXPLAIN': 'FALSE',
-    'SUNSET_TIMES_APIKEY': 'NONE',
   })
 
   idmap = env['SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new SunsetTimesSDK(merge([
       {
-        apikey: env.SUNSET_TIMES_APIKEY,
       },
       extra
     ]))
