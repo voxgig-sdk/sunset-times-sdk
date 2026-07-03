@@ -10,7 +10,7 @@ The TypeScript SDK for the SunsetTimes API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install sunset-times
+npm install @voxgig-sdk/sunset-times
 ```
 ## Tutorial: your first API call
 

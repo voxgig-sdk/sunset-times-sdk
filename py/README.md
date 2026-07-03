@@ -10,7 +10,7 @@ The Python SDK for the SunsetTimes API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install sunset-times-sdk
+pip install voxgig-sdk-sunset-times
 ```
 
 Or install from source:

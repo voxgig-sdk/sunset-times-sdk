@@ -10,13 +10,13 @@ The Ruby SDK for the SunsetTimes API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install sunset-times-sdk
+gem install voxgig-sdk-sunset-times
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "sunset-times-sdk"
+gem "voxgig-sdk-sunset-times"
 ```
 
 Then run:

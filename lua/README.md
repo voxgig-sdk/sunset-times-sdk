@@ -10,7 +10,7 @@ The Lua SDK for the SunsetTimes API — an entity-oriented client using Lua conv
 
 ## Install
 ```bash
-luarocks install sunset-times-sdk
+luarocks install voxgig-sdk-sunset-times
 ```
 
 If the module is not yet published, add the source directory to

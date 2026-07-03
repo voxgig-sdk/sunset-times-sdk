@@ -10,7 +10,7 @@ The PHP SDK for the SunsetTimes API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/sunset-times-sdk
+composer require voxgig-sdk/sunset-times
 ```
 
 
