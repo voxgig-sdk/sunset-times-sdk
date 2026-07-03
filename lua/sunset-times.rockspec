@@ -1,7 +1,11 @@
 package = "voxgig-sdk-sunset-times"
-version = "0.0-1"
+version = "0.0.1-1"
 source = {
-  url = "git://github.com/voxgig-sdk/sunset-times-sdk.git"
+  -- git+https (GitHub dropped git:// in 2022); pin the install to the release
+  -- tag pushed by `make publish`, and point at the lua/ subdir of the monorepo.
+  url = "git+https://github.com/voxgig-sdk/sunset-times-sdk.git",
+  tag = "lua/v0.0.1",
+  dir = "sunset-times-sdk/lua"
 }
 description = {
   summary = "SunsetTimes SDK for Lua",

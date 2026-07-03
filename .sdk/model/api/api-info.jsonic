@@ -17,29 +17,7 @@ main: {
       termsOfService: "https://sunrise-sunset.org/terms-of-use"
       title: "Sunset Times API"
       version: "1.0.0"
-      tagline: "Sunrise, sunset, twilight and solar noon times for any latitude/longitude worldwide"
-      homepage: "https://sunrise-sunset.org"
-      docs_url: "https://sunrise-sunset.org/api"
-      license_short: "Free to use with reasonable request volume; attribution with a link back to sunrise-sunset.org is required."
-      license_md: `- Free service for sunrise/sunset data with no authentication required.
-- Attribution is required: link back to [sunrise-sunset.org](https://sunrise-sunset.org).
-- Usage must not exceed reasonable request volume.
-- No published rate limit, but excessive traffic may be throttled.`
-      about_md: `[Sunrise Sunset](https://sunrise-sunset.org) is a small REST API that returns sunrise, sunset and twilight times for any point on Earth. The service is hosted at \`https://api.sunrise-sunset.org\` and is free to use without an API key.
-
-What you get from the API:
-
-- \`sunrise\`, \`sunset\` and \`solar_noon\` times
-- \`day_length\` in seconds (or formatted)
-- Civil, nautical and astronomical twilight begin/end times
-- Optional timezone-aware output via the \`tzid\` parameter (e.g. \`UTC\`, \`Africa/Lagos\`)
-- JSONP support via the \`callback\` parameter
-
-The single endpoint is \`GET /json\` with required \`lat\` and \`lng\` query parameters and optional \`date\` (YYYY-MM-DD, defaults to today), \`formatted\` (0 or 1), \`tzid\` and \`callback\`. Responses include a \`status\` field with values such as \`OK\`, \`INVALID_REQUEST\`, \`INVALID_DATE\`, \`INVALID_TZID\` or \`UNKNOWN_ERROR\`. CORS is enabled and attribution back to sunrise-sunset.org is expected.`
-      entity_desc: {
-        sunrise_and_sunset: "Sunrise, sunset, solar noon, day length and the three twilight phases (civil, nautical, astronomical) for a given latitude/longitude and optional date — served from `GET /json?lat={lat}&lng={lng}`."
-      }
-      auth: false
     }
   }
 }
+

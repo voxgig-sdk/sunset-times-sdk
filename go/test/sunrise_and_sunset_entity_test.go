@@ -117,6 +117,7 @@ func sunrise_and_sunsetBasicSetup(extra map[string]any) *entityTestSetup {
 		"SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID": idmap,
 		"SUNSETTIMES_TEST_LIVE":      "FALSE",
 		"SUNSETTIMES_TEST_EXPLAIN":   "FALSE",
+		"SUNSETTIMES_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID"])
@@ -127,6 +128,7 @@ func sunrise_and_sunsetBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["SUNSETTIMES_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["SUNSETTIMES_APIKEY"],
 			},
 			extra,
 		})

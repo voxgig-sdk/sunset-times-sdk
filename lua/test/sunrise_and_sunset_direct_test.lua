@@ -69,12 +69,14 @@ function sunrise_and_sunset_direct_setup(mockres)
   local env = runner.env_override({
     ["SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID"] = {},
     ["SUNSETTIMES_TEST_LIVE"] = "FALSE",
+    ["SUNSETTIMES_APIKEY"] = "NONE",
   })
 
   local live = env["SUNSETTIMES_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["SUNSETTIMES_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

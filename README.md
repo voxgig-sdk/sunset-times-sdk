@@ -1,22 +1,8 @@
 # SunsetTimes SDK
 
-Sunrise, sunset, twilight and solar noon times for any latitude/longitude worldwide
+Sunset Times API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Sunset Times API
-
-[Sunrise Sunset](https://sunrise-sunset.org) is a small REST API that returns sunrise, sunset and twilight times for any point on Earth. The service is hosted at `https://api.sunrise-sunset.org` and is free to use without an API key.
-
-What you get from the API:
-
-- `sunrise`, `sunset` and `solar_noon` times
-- `day_length` in seconds (or formatted)
-- Civil, nautical and astronomical twilight begin/end times
-- Optional timezone-aware output via the `tzid` parameter (e.g. `UTC`, `Africa/Lagos`)
-- JSONP support via the `callback` parameter
-
-The single endpoint is `GET /json` with required `lat` and `lng` query parameters and optional `date` (YYYY-MM-DD, defaults to today), `formatted` (0 or 1), `tzid` and `callback`. Responses include a `status` field with values such as `OK`, `INVALID_REQUEST`, `INVALID_DATE`, `INVALID_TZID` or `UNKNOWN_ERROR`. CORS is enabled and attribution back to sunrise-sunset.org is expected.
 
 ## Try it
 
@@ -50,27 +36,31 @@ gem install sunset-times-sdk
 luarocks install sunset-times-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { SunsetTimesSDK } from 'sunset-times'
 
-const client = new SunsetTimesSDK({})
+const client = new SunsetTimesSDK({
+  apikey: process.env.SUNSET-TIMES_APIKEY,
+})
 
+// Load sunriseandsunset data
+const sunriseandsunset = await client.SunriseAndSunset().load({})
+console.log(sunriseandsunset.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **SunriseAndSunset** | Sunrise, sunset, solar noon, day length and the three twilight phases (civil, nautical, astronomical) for a given latitude/longitude and optional date — served from `GET /json?lat={lat}&lng={lng}`. | `/json` |
+| **SunriseAndSunset** |  | `/json` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from sunsettimes_sdk import SunsetTimesSDK
 
-client = SunsetTimesSDK({})
+client = SunsetTimesSDK({
+    "apikey": os.environ.get("SUNSET-TIMES_APIKEY"),
+})
 
 
 # Load a specific sunriseandsunset
-sunriseandsunset, err = client.SunriseAndSunset(None).load(
-    {"id": "example_id"}, None
-)
+sunriseandsunset, err = client.SunriseAndSunset().load({"id": "example_id"})
+print(sunriseandsunset)
 ```
 
 ### PHP
@@ -127,13 +119,14 @@ sunriseandsunset, err = client.SunriseAndSunset(None).load(
 <?php
 require_once 'sunsettimes_sdk.php';
 
-$client = new SunsetTimesSDK([]);
+$client = new SunsetTimesSDK([
+    "apikey" => getenv("SUNSET-TIMES_APIKEY"),
+]);
 
 
 // Load a specific sunriseandsunset
-[$sunriseandsunset, $err] = $client->SunriseAndSunset(null)->load(
-    ["id" => "example_id"], null
-);
+[$sunriseandsunset, $err] = $client->SunriseAndSunset()->load(["id" => "example_id"]);
+print_r($sunriseandsunset);
 ```
 
 ### Golang
@@ -141,8 +134,13 @@ $client = new SunsetTimesSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/sunset-times-sdk/go"
 
-client := sdk.NewSunsetTimesSDK(map[string]any{})
+client := sdk.NewSunsetTimesSDK(map[string]any{
+    "apikey": os.Getenv("SUNSET-TIMES_APIKEY"),
+})
 
+// Load sunriseandsunset data
+sunriseandsunset, err := client.SunriseAndSunset(nil).Load(map[string]any{}, nil)
+fmt.Println(sunriseandsunset)
 ```
 
 ### Ruby
@@ -150,13 +148,14 @@ client := sdk.NewSunsetTimesSDK(map[string]any{})
 ```ruby
 require_relative "SunsetTimes_sdk"
 
-client = SunsetTimesSDK.new({})
+client = SunsetTimesSDK.new({
+  "apikey" => ENV["SUNSET-TIMES_APIKEY"],
+})
 
 
 # Load a specific sunriseandsunset
-sunriseandsunset, err = client.SunriseAndSunset(nil).load(
-  { "id" => "example_id" }, nil
-)
+sunriseandsunset, err = client.SunriseAndSunset().load({ "id" => "example_id" })
+puts sunriseandsunset
 ```
 
 ### Lua
@@ -164,13 +163,14 @@ sunriseandsunset, err = client.SunriseAndSunset(nil).load(
 ```lua
 local sdk = require("sunset-times_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("SUNSET-TIMES_APIKEY"),
+})
 
 
 -- Load a specific sunriseandsunset
-local sunriseandsunset, err = client:SunriseAndSunset(nil):load(
-  { id = "example_id" }, nil
-)
+local sunriseandsunset, err = client:SunriseAndSunset():load({ id = "example_id" })
+print(sunriseandsunset)
 ```
 
 ## Unit testing in offline mode
@@ -189,25 +189,21 @@ const result = await client.SunriseAndSunset().load({ id: 'test01' })
 ### Python
 
 ```python
-client = SunsetTimesSDK.test(None, None)
-result, err = client.SunriseAndSunset(None).load(
-    {"id": "test01"}, None
-)
+client = SunsetTimesSDK.test()
+result, err = client.SunriseAndSunset().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = SunsetTimesSDK::test(null, null);
-[$result, $err] = $client->SunriseAndSunset(null)->load(
-    ["id" => "test01"], null
-);
+$client = SunsetTimesSDK::test();
+[$result, $err] = $client->SunriseAndSunset()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.SunriseAndSunset(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -216,19 +212,15 @@ result, err := client.SunriseAndSunset(nil).Load(
 ### Ruby
 
 ```ruby
-client = SunsetTimesSDK.test(nil, nil)
-result, err = client.SunriseAndSunset(nil).load(
-  { "id" => "test01" }, nil
-)
+client = SunsetTimesSDK.test
+result, err = client.SunriseAndSunset().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:SunriseAndSunset(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:SunriseAndSunset():load({ id = "test01" })
 ```
 
 ## How it works
@@ -332,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Sunset Times API
-
-- Upstream: [https://sunrise-sunset.org](https://sunrise-sunset.org)
-- API docs: [https://sunrise-sunset.org/api](https://sunrise-sunset.org/api)
-
-- Free service for sunrise/sunset data with no authentication required.
-- Attribution is required: link back to [sunrise-sunset.org](https://sunrise-sunset.org).
-- Usage must not exceed reasonable request volume.
-- No published rate limit, but excessive traffic may be throttled.
 
 ---
 

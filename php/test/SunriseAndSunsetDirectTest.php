@@ -74,12 +74,14 @@ function sunrise_and_sunset_direct_setup($mockres)
     $env = Runner::env_override([
         "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID" => [],
         "SUNSETTIMES_TEST_LIVE" => "FALSE",
+        "SUNSETTIMES_APIKEY" => "NONE",
     ]);
 
     $live = $env["SUNSETTIMES_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["SUNSETTIMES_APIKEY"],
         ];
         $client = new SunsetTimesSDK($merged_opts);
         return [

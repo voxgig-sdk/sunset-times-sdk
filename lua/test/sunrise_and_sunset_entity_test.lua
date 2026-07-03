@@ -91,6 +91,7 @@ function sunrise_and_sunset_basic_setup(extra)
     ["SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID"] = idmap,
     ["SUNSETTIMES_TEST_LIVE"] = "FALSE",
     ["SUNSETTIMES_TEST_EXPLAIN"] = "FALSE",
+    ["SUNSETTIMES_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -102,6 +103,7 @@ function sunrise_and_sunset_basic_setup(extra)
   if env["SUNSETTIMES_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["SUNSETTIMES_APIKEY"],
       },
       extra or {},
     })
