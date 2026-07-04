@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:sunrise_and_sunset():list() / client:sunrise_and_sunset():load({ id = ... })
+function SunsetTimesSDK:sunrise_and_sunset(data)
+  local EntityMod = require("entity.sunrise_and_sunset_entity")
+  if data == nil then
+    if self._sunrise_and_sunset == nil then
+      self._sunrise_and_sunset = EntityMod.new(self, nil)
+    end
+    return self._sunrise_and_sunset
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:sunrise_and_sunset() instead.
 function SunsetTimesSDK:SunriseAndSunset(data)
   local EntityMod = require("entity.sunrise_and_sunset_entity")
   return EntityMod.new(self, data)

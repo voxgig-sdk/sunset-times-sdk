@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch SunriseAndSunsetLoadMatch
+---@param ctrl? table
+---@return SunriseAndSunset
+---@return string? err
 function SunriseAndSunsetEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

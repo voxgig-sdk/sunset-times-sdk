@@ -85,6 +85,27 @@ func (e *SunriseAndSunsetEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an SunriseAndSunset; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *SunriseAndSunsetEntity) DataTyped(data ...SunriseAndSunset) SunriseAndSunset {
+	if len(data) > 0 {
+		return typedFrom[SunriseAndSunset](e.Data(asMap(data[0])))
+	}
+	return typedFrom[SunriseAndSunset](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through SunriseAndSunset (all fields
+// optional at the wire level).
+func (e *SunriseAndSunsetEntity) MatchTyped(match ...SunriseAndSunset) SunriseAndSunset {
+	if len(match) > 0 {
+		return typedFrom[SunriseAndSunset](e.Match(asMap(match[0])))
+	}
+	return typedFrom[SunriseAndSunset](e.Match())
+}
+
 
 func (e *SunriseAndSunsetEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *SunriseAndSunsetEntity) Load(reqmatch map[string]any, ctrl map[string]a
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// SunriseAndSunsetLoadMatch and returns an SunriseAndSunset. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *SunriseAndSunsetEntity) LoadTyped(reqmatch SunriseAndSunsetLoadMatch, ctrl map[string]any) (SunriseAndSunset, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return SunriseAndSunset{}, err
+	}
+	return typedFrom[SunriseAndSunset](res), nil
 }
 
 

@@ -9,9 +9,12 @@ The TypeScript SDK for the SunsetTimes API — a type-safe, entity-oriented clie
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/sunset-times
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/sunset-times-sdk/releases](https://github.com/voxgig-sdk/sunset-times-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { SunsetTimesSDK } from 'sunset-times'
+import { SunsetTimesSDK } from '@voxgig-sdk/sunset-times'
 
-const client = new SunsetTimesSDK({
-  apikey: process.env.SUNSET-TIMES_APIKEY,
-})
+const client = new SunsetTimesSDK()
 ```
 
 ### 3. Load a sunriseandsunset
 
 ```ts
-const result = await client.SunriseAndSunset().load({ id: 'example_id' })
+const result = await client.sunriseandsunset.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = SunsetTimesSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.sunriseandsunset.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new SunsetTimesSDK({ apikey: '...' })
+const client = new SunsetTimesSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.sunriseandsunset
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new SunsetTimesSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new SunsetTimesSDK({
 Create a `.env.local` file at the project root:
 
 ```
-SUNSET-TIMES_TEST_LIVE=TRUE
-SUNSET-TIMES_APIKEY=<your-key>
+SUNSET_TIMES_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new SunsetTimesSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new SunsetTimesSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -268,7 +265,7 @@ API path: `/json`
 
 ### SunriseAndSunset
 
-Create an instance: `const sunrise_and_sunset = client.SunriseAndSunset()`
+Create an instance: `const sunrise_and_sunset = client.sunrise_and_sunset`
 
 #### Operations
 
@@ -287,7 +284,7 @@ Create an instance: `const sunrise_and_sunset = client.SunriseAndSunset()`
 #### Example: Load
 
 ```ts
-const sunrise_and_sunset = await client.SunriseAndSunset().load({ id: 'sunrise_and_sunset_id' })
+const sunrise_and_sunset = await client.sunrise_and_sunset.load({ id: 'sunrise_and_sunset_id' })
 ```
 
 
@@ -348,7 +345,7 @@ sunset-times/
 Import the SDK from the package root:
 
 ```ts
-import { SunsetTimesSDK } from 'sunset-times'
+import { SunsetTimesSDK } from '@voxgig-sdk/sunset-times'
 ```
 
 ### Entity state
@@ -358,11 +355,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const sunriseandsunset = client.sunriseandsunset
+await sunriseandsunset.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// sunriseandsunset.data() now returns the loaded sunriseandsunset data
+// sunriseandsunset.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

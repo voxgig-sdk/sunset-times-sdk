@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## SunriseAndSunsetEntity
 
 ```lua
-local sunrise_and_sunset = client:SunriseAndSunset(nil)
+local sunrise_and_sunset = client:sunrise_and_sunset(nil)
 ```
 
 ### Fields
@@ -102,7 +101,7 @@ local sunrise_and_sunset = client:SunriseAndSunset(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:SunriseAndSunset():load({ id = "sunrise_and_sunset_id" })
+local result, err = client:sunrise_and_sunset():load({ id = "sunrise_and_sunset_id" })
 ```
 
 ### Common Methods

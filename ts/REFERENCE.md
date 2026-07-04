@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `SunsetTimesSDK.test()`.
 ## SunriseAndSunsetEntity
 
 ```ts
-const sunrise_and_sunset = client.SunriseAndSunset()
+const sunrise_and_sunset = client.sunrise_and_sunset
 ```
 
 ### Fields
@@ -128,7 +127,7 @@ const sunrise_and_sunset = client.SunriseAndSunset()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.SunriseAndSunset().load({ id: 'sunrise_and_sunset_id' })
+const result = await client.sunrise_and_sunset.load({ id: 'sunrise_and_sunset_id' })
 ```
 
 ### Common Methods

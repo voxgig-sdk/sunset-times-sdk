@@ -106,14 +106,12 @@ func sunrise_and_sunsetDirectSetup(mockres any) *sunrise_and_sunsetDirectSetupRe
 	env := envOverride(map[string]any{
 		"SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID": map[string]any{},
 		"SUNSETTIMES_TEST_LIVE":    "FALSE",
-		"SUNSETTIMES_APIKEY":       "NONE",
 	})
 
 	live := env["SUNSETTIMES_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["SUNSETTIMES_APIKEY"],
 		}
 		client := sdk.NewSunsetTimesSDK(mergedOpts)
 

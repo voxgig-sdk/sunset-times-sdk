@@ -49,8 +49,7 @@ class SunriseAndSunsetEntityTest extends TestCase
         // LOAD
         $sunrise_and_sunset_ref01_ent = $client->SunriseAndSunset(null);
         $sunrise_and_sunset_ref01_match_dt0 = [];
-        [$sunrise_and_sunset_ref01_data_dt0_loaded, $err] = $sunrise_and_sunset_ref01_ent->load($sunrise_and_sunset_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $sunrise_and_sunset_ref01_data_dt0_loaded = $sunrise_and_sunset_ref01_ent->load($sunrise_and_sunset_ref01_match_dt0, null);
         $this->assertNotNull($sunrise_and_sunset_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function sunrise_and_sunset_basic_setup($extra)
         "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID" => $idmap,
         "SUNSETTIMES_TEST_LIVE" => "FALSE",
         "SUNSETTIMES_TEST_EXPLAIN" => "FALSE",
-        "SUNSETTIMES_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function sunrise_and_sunset_basic_setup($extra)
     if ($env["SUNSETTIMES_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["SUNSETTIMES_APIKEY"],
             ],
             $extra ?? [],
         ]);

@@ -245,6 +245,9 @@ func (sdk *SunsetTimesSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// SunriseAndSunset returns a SunriseAndSunset entity bound to this client.
+// Idiomatic usage: client.SunriseAndSunset(nil).List(nil, nil) or
+// client.SunriseAndSunset(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *SunsetTimesSDK) SunriseAndSunset(data map[string]any) SunsetTimesEntity {
 	return NewSunriseAndSunsetEntityFunc(sdk, data)
 }

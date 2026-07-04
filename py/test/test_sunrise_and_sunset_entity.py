@@ -49,8 +49,7 @@ class TestSunriseAndSunsetEntity:
         # LOAD
         sunrise_and_sunset_ref01_ent = client.SunriseAndSunset(None)
         sunrise_and_sunset_ref01_match_dt0 = {}
-        sunrise_and_sunset_ref01_data_dt0_loaded, err = sunrise_and_sunset_ref01_ent.load(sunrise_and_sunset_ref01_match_dt0, None)
-        assert err is None
+        sunrise_and_sunset_ref01_data_dt0_loaded = sunrise_and_sunset_ref01_ent.load(sunrise_and_sunset_ref01_match_dt0, None)
         assert sunrise_and_sunset_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _sunrise_and_sunset_basic_setup(extra):
         "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID": idmap,
         "SUNSETTIMES_TEST_LIVE": "FALSE",
         "SUNSETTIMES_TEST_EXPLAIN": "FALSE",
-        "SUNSETTIMES_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _sunrise_and_sunset_basic_setup(extra):
     if env.get("SUNSETTIMES_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("SUNSETTIMES_APIKEY"),
             },
             extra or {},
         ])

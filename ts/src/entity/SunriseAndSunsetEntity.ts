@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  SunriseAndSunset,
+  SunriseAndSunsetLoadMatch,
+} from '../SunsetTimesTypes'
 
 // TODO: needs Entity superclass
-class SunriseAndSunsetEntity extends SunsetTimesEntityBase {
+class SunriseAndSunsetEntity extends SunsetTimesEntityBase<SunriseAndSunset> {
 
   constructor(client: SunsetTimesSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class SunriseAndSunsetEntity extends SunsetTimesEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: SunriseAndSunsetLoadMatch, ctrl?: Control): Promise<SunriseAndSunset> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class SunriseAndSunsetEntity extends SunsetTimesEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<SunriseAndSunset> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
