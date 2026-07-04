@@ -204,14 +204,7 @@ class SunsetTimesSDK {
 
 
 
-  _sunrise_and_sunset?: SunriseAndSunsetEntity
-
-  // Idiomatic facade: `client.sunrise_and_sunset.list()` / `client.sunrise_and_sunset.load({ id })`.
-  get sunrise_and_sunset(): SunriseAndSunsetEntity {
-    return (this._sunrise_and_sunset ??= new SunriseAndSunsetEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.sunrise_and_sunset` instead. */
+  // Entity access: `client.SunriseAndSunset().list()` / `client.SunriseAndSunset().load({ id })`.
   SunriseAndSunset(data?: any) {
     const self = this
     return new SunriseAndSunsetEntity(self,data)

@@ -233,10 +233,10 @@ class SunsetTimesSDK
 
     private $_sunrise_and_sunset = null;
 
-    // Idiomatic facade: $client->sunrise_and_sunset()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias SunriseAndSunset() (PHP method
-    // names are case-insensitive).
-    public function sunrise_and_sunset($data = null)
+    // Canonical facade: $client->SunriseAndSunset()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->sunrise_and_sunset()
+    // resolves here too.
+    public function SunriseAndSunset($data = null)
     {
         require_once __DIR__ . '/entity/sunrise_and_sunset_entity.php';
         if ($data === null) {

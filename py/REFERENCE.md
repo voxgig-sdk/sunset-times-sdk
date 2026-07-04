@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## SunriseAndSunsetEntity
 
 ```python
-sunrise_and_sunset = client.sunrise_and_sunset
+sunrise_and_sunset = client.SunriseAndSunset()
 ```
 
 ### Fields
@@ -98,7 +98,7 @@ sunrise_and_sunset = client.sunrise_and_sunset
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.sunrise_and_sunset.load({"id": "sunrise_and_sunset_id"})
+result = client.SunriseAndSunset().load({"id": "sunrise_and_sunset_id"})
 ```
 
 ### Common Methods

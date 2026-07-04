@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## SunriseAndSunsetEntity
 
 ```php
-$sunrise_and_sunset = $client->sunrise_and_sunset();
+$sunrise_and_sunset = $client->SunriseAndSunset();
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ $sunrise_and_sunset = $client->sunrise_and_sunset();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->sunrise_and_sunset()->load(["id" => "sunrise_and_sunset_id"]);
+$result = $client->SunriseAndSunset()->load(["id" => "sunrise_and_sunset_id"]);
 ```
 
 ### Common Methods

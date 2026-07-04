@@ -220,25 +220,15 @@ class SunsetTimesSDK:
         }
 
 
-    @property
-    def sunrise_and_sunset(self):
-        """Idiomatic facade: client.sunrise_and_sunset.list() / client.sunrise_and_sunset.load({"id": ...})."""
-        from entity.sunrise_and_sunset_entity import SunriseAndSunsetEntity
-        cached = getattr(self, "_sunrise_and_sunset", None)
-        if cached is None:
-            cached = SunriseAndSunsetEntity(self, None)
-            self._sunrise_and_sunset = cached
-        return cached
-
-    def SunriseAndSunset(self, data=None):
-        # Deprecated: use client.sunrise_and_sunset instead.
+    def SunriseAndSunset(self, data=None) -> "SunriseAndSunsetEntity":
+        """Entity factory: client.SunriseAndSunset().list({}) / client.SunriseAndSunset().load({"id": ...})."""
         from entity.sunrise_and_sunset_entity import SunriseAndSunsetEntity
         return SunriseAndSunsetEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "SunsetTimesSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class SunsetTimesSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.sunrise_and_sunset_entity import SunriseAndSunsetEntity

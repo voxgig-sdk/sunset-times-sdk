@@ -208,13 +208,7 @@ class SunsetTimesSDK
   end
 
 
-  # Idiomatic facade: client.sunrise_and_sunset.list / client.sunrise_and_sunset.load({ "id" => ... })
-  def sunrise_and_sunset
-    require_relative 'entity/sunrise_and_sunset_entity'
-    @sunrise_and_sunset ||= SunriseAndSunsetEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.sunrise_and_sunset instead.
+  # Canonical facade: client.SunriseAndSunset.list / client.SunriseAndSunset.load({ "id" => ... })
   def SunriseAndSunset(data = nil)
     require_relative 'entity/sunrise_and_sunset_entity'
     SunriseAndSunsetEntity.new(self, data)

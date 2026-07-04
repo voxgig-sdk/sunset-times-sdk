@@ -32,8 +32,9 @@ client = SunsetTimesSDK.new
 
 ```ruby
 begin
-  result = client.sunriseandsunset.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare SunriseAndSunset record (raises on error).
+  sunriseandsunset = client.SunriseAndSunset.load({ "id" => "example_id" })
+  puts sunriseandsunset
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = SunsetTimesSDK.test
+client = SunsetTimesSDK.test({
+  "entity" => { "sunriseandsunset" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.sunriseandsunset.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+sunriseandsunset = client.SunriseAndSunset.load({ "id" => "test01" })
+puts sunriseandsunset
 ```
 
 ### Use a custom fetch function
@@ -220,7 +225,7 @@ API path: `/json`
 
 ### SunriseAndSunset
 
-Create an instance: `const sunrise_and_sunset = client.sunrise_and_sunset`
+Create an instance: `sunrise_and_sunset = client.SunriseAndSunset`
 
 #### Operations
 
@@ -238,8 +243,9 @@ Create an instance: `const sunrise_and_sunset = client.sunrise_and_sunset`
 
 #### Example: Load
 
-```ts
-const sunrise_and_sunset = await client.sunrise_and_sunset.load({ id: 'sunrise_and_sunset_id' })
+```ruby
+# load returns the bare SunriseAndSunset record (raises on error).
+sunrise_and_sunset = client.SunriseAndSunset.load({ "id" => "sunrise_and_sunset_id" })
 ```
 
 
@@ -314,7 +320,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-sunriseandsunset = client.sunriseandsunset
+sunriseandsunset = client.SunriseAndSunset
 sunriseandsunset.load({ "id" => "example_id" })
 
 # sunriseandsunset.data_get now returns the loaded sunriseandsunset data

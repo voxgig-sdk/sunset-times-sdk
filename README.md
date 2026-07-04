@@ -26,9 +26,9 @@ import { SunsetTimesSDK } from '@voxgig-sdk/sunset-times'
 
 const client = new SunsetTimesSDK()
 
-// Load sunriseandsunset data
-const sunriseandsunset = await client.sunriseandsunset.load({})
-console.log(sunriseandsunset.data)
+// Load sunriseandsunset data (returns a SunriseAndSunset)
+const sunriseandsunset = await client.SunriseAndSunset().load()
+console.log(sunriseandsunset)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from sunsettimes_sdk import SunsetTimesSDK
 client = SunsetTimesSDK()
 
 
-# Load a specific sunriseandsunset
-sunriseandsunset = client.sunriseandsunset.load({"id": "example_id"})
+# Load a specific sunriseandsunset (returns the record, raises on error)
+sunriseandsunset = client.SunriseAndSunset().load({"id": "example_id"})
 print(sunriseandsunset)
 ```
 
@@ -98,8 +98,8 @@ require_once 'sunsettimes_sdk.php';
 $client = new SunsetTimesSDK();
 
 
-// Load a specific sunriseandsunset
-$sunriseandsunset = $client->sunriseandsunset()->load(["id" => "example_id"]);
+// Load a specific sunriseandsunset (returns the bare record; throws on error)
+$sunriseandsunset = $client->SunriseAndSunset()->load(["id" => "example_id"]);
 print_r($sunriseandsunset);
 ```
 
@@ -123,8 +123,8 @@ require_relative "SunsetTimes_sdk"
 client = SunsetTimesSDK.new
 
 
-# Load a specific sunriseandsunset
-sunriseandsunset = client.sunriseandsunset.load({ "id" => "example_id" })
+# Load a specific sunriseandsunset (returns the bare record; raises on error)
+sunriseandsunset = client.SunriseAndSunset.load({ "id" => "example_id" })
 puts sunriseandsunset
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific sunriseandsunset
-local sunriseandsunset, err = client:sunriseandsunset():load({ id = "example_id" })
+local sunriseandsunset, err = client:SunriseAndSunset():load({ id = "example_id" })
 print(sunriseandsunset)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = SunsetTimesSDK.test()
-const result = await client.sunriseandsunset.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const sunriseandsunset = await client.SunriseAndSunset().load({ id: 'test01' })
+// sunriseandsunset is a bare SunriseAndSunset populated with mock data
+console.log(sunriseandsunset)
 ```
 
 ### Python
 
 ```python
 client = SunsetTimesSDK.test()
-result = client.sunriseandsunset.load({"id": "test01"})
+sunriseandsunset = client.SunriseAndSunset().load({"id": "test01"})
+print(sunriseandsunset)
 ```
 
 ### PHP
 
 ```php
-$client = SunsetTimesSDK::test();
-$result = $client->sunriseandsunset()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = SunsetTimesSDK::test([
+    "entity" => ["sunriseandsunset" => ["test01" => ["id" => "test01"]]],
+]);
+$sunriseandsunset = $client->SunriseAndSunset()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.SunriseAndSunset(nil).Load(
 ### Ruby
 
 ```ruby
-client = SunsetTimesSDK.test
-result = client.sunriseandsunset.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = SunsetTimesSDK.test({
+  "entity" => { "sunriseandsunset" => { "test01" => { "id" => "test01" } } },
+})
+sunriseandsunset = client.SunriseAndSunset.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:sunriseandsunset():load({ id = "test01" })
+local result, err = client:SunriseAndSunset():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

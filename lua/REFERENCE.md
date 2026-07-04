@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## SunriseAndSunsetEntity
 
 ```lua
-local sunrise_and_sunset = client:sunrise_and_sunset(nil)
+local sunrise_and_sunset = client:SunriseAndSunset(nil)
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ local sunrise_and_sunset = client:sunrise_and_sunset(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:sunrise_and_sunset():load({ id = "sunrise_and_sunset_id" })
+local result, err = client:SunriseAndSunset():load({ id = "sunrise_and_sunset_id" })
 ```
 
 ### Common Methods

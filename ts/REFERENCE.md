@@ -109,7 +109,7 @@ Alias for `SunsetTimesSDK.test()`.
 ## SunriseAndSunsetEntity
 
 ```ts
-const sunrise_and_sunset = client.sunrise_and_sunset
+const sunrise_and_sunset = client.SunriseAndSunset()
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ const sunrise_and_sunset = client.sunrise_and_sunset
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.sunrise_and_sunset.load({ id: 'sunrise_and_sunset_id' })
+const result = await client.SunriseAndSunset().load({ id: 'sunrise_and_sunset_id' })
 ```
 
 ### Common Methods

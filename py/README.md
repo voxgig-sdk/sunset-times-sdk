@@ -33,10 +33,12 @@ client = SunsetTimesSDK()
 
 ### 3. Load a sunriseandsunset
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.sunriseandsunset.load({"id": "example_id"})
-    print(result)
+    sunriseandsunset = client.SunriseAndSunset().load({"id": "example_id"})
+    print(sunriseandsunset)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = SunsetTimesSDK.test()
 
-result = client.sunriseandsunset.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+sunriseandsunset = client.SunriseAndSunset().load({"id": "test01"})
+# sunriseandsunset contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -220,7 +223,7 @@ API path: `/json`
 
 ### SunriseAndSunset
 
-Create an instance: `const sunrise_and_sunset = client.sunrise_and_sunset`
+Create an instance: `sunrise_and_sunset = client.SunriseAndSunset()`
 
 #### Operations
 
@@ -238,8 +241,8 @@ Create an instance: `const sunrise_and_sunset = client.sunrise_and_sunset`
 
 #### Example: Load
 
-```ts
-const sunrise_and_sunset = await client.sunrise_and_sunset.load({ id: 'sunrise_and_sunset_id' })
+```python
+sunrise_and_sunset = client.SunriseAndSunset().load({"id": "sunrise_and_sunset_id"})
 ```
 
 
@@ -313,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-sunriseandsunset = client.sunriseandsunset
+sunriseandsunset = client.SunriseAndSunset()
 sunriseandsunset.load({"id": "example_id"})
 
 # sunriseandsunset.data_get() now returns the loaded sunriseandsunset data

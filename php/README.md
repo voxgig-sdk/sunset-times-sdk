@@ -33,9 +33,10 @@ $client = new SunsetTimesSDK();
 
 ```php
 try {
-    $result = $client->sunriseandsunset()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare SunriseAndSunset record (throws on error).
+    $sunriseandsunset = $client->SunriseAndSunset()->load(["id" => "example_id"]);
+    print_r($sunriseandsunset);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = SunsetTimesSDK::test();
+$client = SunsetTimesSDK::test([
+    "entity" => ["sunriseandsunset" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->sunriseandsunset()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$sunriseandsunset = $client->SunriseAndSunset()->load(["id" => "test01"]);
+print_r($sunriseandsunset);
 ```
 
 ### Use a custom fetch function
@@ -225,7 +230,7 @@ API path: `/json`
 
 ### SunriseAndSunset
 
-Create an instance: `const sunrise_and_sunset = client.sunrise_and_sunset`
+Create an instance: `$sunrise_and_sunset = $client->SunriseAndSunset();`
 
 #### Operations
 
@@ -243,8 +248,9 @@ Create an instance: `const sunrise_and_sunset = client.sunrise_and_sunset`
 
 #### Example: Load
 
-```ts
-const sunrise_and_sunset = await client.sunrise_and_sunset.load({ id: 'sunrise_and_sunset_id' })
+```php
+// load() returns the bare SunriseAndSunset record (throws on error).
+$sunrise_and_sunset = $client->SunriseAndSunset()->load(["id" => "sunrise_and_sunset_id"]);
 ```
 
 
@@ -319,7 +325,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$sunriseandsunset = $client->sunriseandsunset();
+$sunriseandsunset = $client->SunriseAndSunset();
 $sunriseandsunset->load(["id" => "example_id"]);
 
 // $sunriseandsunset->dataGet() now returns the loaded sunriseandsunset data

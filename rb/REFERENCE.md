@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## SunriseAndSunsetEntity
 
 ```ruby
-sunrise_and_sunset = client.sunrise_and_sunset
+sunrise_and_sunset = client.SunriseAndSunset
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ sunrise_and_sunset = client.sunrise_and_sunset
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.sunrise_and_sunset.load({ "id" => "sunrise_and_sunset_id" })
+result = client.SunriseAndSunset.load({ "id" => "sunrise_and_sunset_id" })
 ```
 
 ### Common Methods
