@@ -8,7 +8,7 @@ Complete API reference for the SunsetTimes Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'sunset-times_sdk'
+require_relative 'SunsetTimes_sdk'
 
 client = SunsetTimesSDK.new(options)
 ```
@@ -93,9 +93,9 @@ sunrise_and_sunset = client.SunriseAndSunset
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `tzid` | ``$STRING`` | No |  |
+| `result` | `Hash` | No |  |
+| `status` | `String` | No |  |
+| `tzid` | `String` | No |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ sunrise_and_sunset = client.SunriseAndSunset
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.SunriseAndSunset.load({ "id" => "sunrise_and_sunset_id" })
+result = client.SunriseAndSunset.load()
 ```
 
 ### Common Methods

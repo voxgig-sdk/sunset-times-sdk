@@ -90,9 +90,9 @@ local sunrise_and_sunset = client:SunriseAndSunset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `tzid` | ``$STRING`` | No |  |
+| `result` | `table` | No |  |
+| `status` | `string` | No |  |
+| `tzid` | `string` | No |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ local sunrise_and_sunset = client:SunriseAndSunset(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:SunriseAndSunset():load({ id = "sunrise_and_sunset_id" })
+local result, err = client:SunriseAndSunset():load()
 ```
 
 ### Common Methods

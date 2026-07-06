@@ -12,6 +12,9 @@
 ---@field tzid? string
 
 ---@class SunriseAndSunsetLoadMatch
+---@field result? table
+---@field status? string
+---@field tzid? string
 
 local M = {}
 

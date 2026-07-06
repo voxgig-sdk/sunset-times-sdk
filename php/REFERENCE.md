@@ -8,7 +8,7 @@ Complete API reference for the SunsetTimes PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/sunset-times_sdk.php';
+require_once __DIR__ . '/sunsettimes_sdk.php';
 
 $client = new SunsetTimesSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = SunsetTimesSDK::test();
 
 Create a new `SunriseAndSunsetEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): SunsetTimesUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,9 +92,9 @@ $sunrise_and_sunset = $client->SunriseAndSunset();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `tzid` | ``$STRING`` | No |  |
+| `result` | `array` | No |  |
+| `status` | `string` | No |  |
+| `tzid` | `string` | No |  |
 
 ### Operations
 
@@ -103,24 +103,24 @@ $sunrise_and_sunset = $client->SunriseAndSunset();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->SunriseAndSunset()->load(["id" => "sunrise_and_sunset_id"]);
+$result = $client->SunriseAndSunset()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -129,7 +129,7 @@ Set the entity match criteria.
 Create a new `SunriseAndSunsetEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

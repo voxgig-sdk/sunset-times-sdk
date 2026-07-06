@@ -20,7 +20,7 @@ class SunriseAndSunset
     public ?string $tzid = null;
 }
 
-/** Match filter for SunriseAndSunset#load (any subset of SunriseAndSunset fields). */
+/** Request payload for SunriseAndSunset#load. */
 class SunriseAndSunsetLoadMatch
 {
     public ?array $result = null;

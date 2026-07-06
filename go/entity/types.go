@@ -15,8 +15,7 @@ type SunriseAndSunset struct {
 	Tzid *string `json:"tzid,omitempty"`
 }
 
-// SunriseAndSunsetLoadMatch mirrors the sunrise_and_sunset fields as an all-optional match
-// filter (Go analog of Partial<SunriseAndSunset>).
+// SunriseAndSunsetLoadMatch is the typed request payload for SunriseAndSunset.LoadTyped.
 type SunriseAndSunsetLoadMatch struct {
 	Result *map[string]any `json:"result,omitempty"`
 	Status *string `json:"status,omitempty"`

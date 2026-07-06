@@ -25,7 +25,7 @@ SunriseAndSunset = Struct.new(
   keyword_init: true
 )
 
-# Match filter for SunriseAndSunset#load (any subset of SunriseAndSunset fields).
+# Request payload for SunriseAndSunset#load.
 #
 # @!attribute [rw] result
 #   @return [Hash, nil]

@@ -11,5 +11,9 @@ export interface SunriseAndSunset {
   tzid?: string
 }
 
-export type SunriseAndSunsetLoadMatch = Partial<SunriseAndSunset>
+export interface SunriseAndSunsetLoadMatch {
+  result?: Record<string, any>
+  status?: string
+  tzid?: string
+}
 

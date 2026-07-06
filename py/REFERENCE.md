@@ -8,7 +8,7 @@ Complete API reference for the SunsetTimes Python SDK.
 ### Constructor
 
 ```python
-from sunset-times_sdk import SunsetTimesSDK
+from sunsettimes_sdk import SunsetTimesSDK
 
 client = SunsetTimesSDK(options)
 ```
@@ -87,9 +87,9 @@ sunrise_and_sunset = client.SunriseAndSunset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `tzid` | ``$STRING`` | No |  |
+| `result` | `dict` | No |  |
+| `status` | `str` | No |  |
+| `tzid` | `str` | No |  |
 
 ### Operations
 
@@ -98,7 +98,7 @@ sunrise_and_sunset = client.SunriseAndSunset()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.SunriseAndSunset().load({"id": "sunrise_and_sunset_id"})
+result = client.SunriseAndSunset().load()
 ```
 
 ### Common Methods

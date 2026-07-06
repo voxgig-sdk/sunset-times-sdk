@@ -116,9 +116,9 @@ const sunrise_and_sunset = client.SunriseAndSunset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `tzid` | ``$STRING`` | No |  |
+| `result` | `Record<string, any>` | No |  |
+| `status` | `string` | No |  |
+| `tzid` | `string` | No |  |
 
 ### Operations
 
@@ -127,7 +127,7 @@ const sunrise_and_sunset = client.SunriseAndSunset()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.SunriseAndSunset().load({ id: 'sunrise_and_sunset_id' })
+const result = await client.SunriseAndSunset().load()
 ```
 
 ### Common Methods

@@ -221,7 +221,7 @@ class SunsetTimesSDK:
 
 
     def SunriseAndSunset(self, data=None) -> "SunriseAndSunsetEntity":
-        """Entity factory: client.SunriseAndSunset().list({}) / client.SunriseAndSunset().load({"id": ...})."""
+        """Entity factory: client.SunriseAndSunset().list() / client.SunriseAndSunset().load({"id": ...})."""
         from entity.sunrise_and_sunset_entity import SunriseAndSunsetEntity
         return SunriseAndSunsetEntity(self, data)
 

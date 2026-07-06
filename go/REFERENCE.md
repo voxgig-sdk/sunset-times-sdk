@@ -97,9 +97,9 @@ sunrise_and_sunset := client.SunriseAndSunset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | ``$OBJECT`` | No |  |
-| `status` | ``$STRING`` | No |  |
-| `tzid` | ``$STRING`` | No |  |
+| `result` | `map[string]any` | No |  |
+| `status` | `string` | No |  |
+| `tzid` | `string` | No |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ sunrise_and_sunset := client.SunriseAndSunset(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.SunriseAndSunset(nil).Load(map[string]any{"id": "sunrise_and_sunset_id"}, nil)
+result, err := client.SunriseAndSunset(nil).Load(nil, nil)
 ```
 
 ### Common Methods
