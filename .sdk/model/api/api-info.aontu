@@ -15,10 +15,10 @@ main: {
           url: "https://api.sunrise-sunset.org"
         }
       ]
+      summary: "Provides sunset and sunrise times for a given latitude and longitude using a simple REST API."
       termsOfService: "https://sunrise-sunset.org/terms-of-use"
       title: "Sunset Times API"
       version: "1.0.0"
+      website: "https://sunrise-sunset.org/api"
     }
   }
-}
-

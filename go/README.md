@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single sunriseandsunset — the value is the loaded record.
-    sunriseandsunset, err := client.SunriseAndSunset(nil).Load(nil, nil)
+    // Load a single sunriseAndSunset — the value is the loaded record.
+    sunriseAndSunset, err := client.SunriseAndSunset(nil).Load(nil, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(sunriseandsunset)
+    fmt.Println(sunriseAndSunset)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-sunriseandsunset, err := client.SunriseAndSunset(nil).Load(
+sunriseAndSunset, err := client.SunriseAndSunset(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(sunriseandsunset) // the returned mock data
+fmt.Println(sunriseAndSunset) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    sunriseandsunset, err := client.SunriseAndSunset(nil).Load(nil, nil)
+    sunriseAndSunset, err := client.SunriseAndSunset(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // sunriseandsunset is the returned record
+    // sunriseAndSunset is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -273,7 +273,7 @@ API path: `/json`
 
 ### SunriseAndSunset
 
-Create an instance: `sunrise_and_sunset := client.SunriseAndSunset(nil)`
+Create an instance: `sunriseAndSunset := client.SunriseAndSunset(nil)`
 
 #### Operations
 
@@ -292,11 +292,11 @@ Create an instance: `sunrise_and_sunset := client.SunriseAndSunset(nil)`
 #### Example: Load
 
 ```go
-sunrise_and_sunset, err := client.SunriseAndSunset(nil).Load(nil, nil)
+sunriseAndSunset, err := client.SunriseAndSunset(nil).Load(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(sunrise_and_sunset) // the loaded record
+fmt.Println(sunriseAndSunset) // the loaded record
 ```
 
 

@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -271,15 +268,18 @@
           "url": "https://sunrise-sunset.org/api"
         },
         "description": "Provides sunset and sunrise times for a given latitude and longitude using a simple REST API. Attribution is required when using this API.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.sunrise-sunset.org"
           }
         ],
+        "summary": "Provides sunset and sunrise times for a given latitude and longitude using a simple REST API.",
         "termsOfService": "https://sunrise-sunset.org/terms-of-use",
         "title": "Sunset Times API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://sunrise-sunset.org/api"
       },
       "option": {},
       "target": {
@@ -332,6 +332,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -382,6 +385,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

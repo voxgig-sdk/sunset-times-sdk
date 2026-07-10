@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## SunriseAndSunsetEntity
 
 ```go
-sunrise_and_sunset := client.SunriseAndSunset(nil)
+sunriseAndSunset := client.SunriseAndSunset(nil)
+fmt.Println(sunriseAndSunset.GetName()) // "sunrise_and_sunset"
 ```
 
 ### Fields
@@ -109,6 +110,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.SunriseAndSunset(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
