@@ -12,20 +12,23 @@ at `../go`.
 # 1. Build a native binary (-> dist/<os>-<arch>/sunset-times-cli)
 make build
 
-# 2. Provide credentials once, via the environment
+# 2. See usage (words, entities, env vars)
+./sunset-times-cli --help
+
+# 3. Provide credentials once, via the environment
 export SUNSET_TIMES_APIKEY=sk_live_xxx
 
-# 3. Each command line is ONE AQL expression, run against the API:
+# 4. Each command line is ONE AQL expression, run against the API:
 ./sunset-times-cli load 1 sunrise_and_sunset            # {id:1} shorthand
 ./sunset-times-cli load '{id:1}' sunrise_and_sunset       # explicit match map
 
-# 4. Override the API base URL for a single call
+# 5. Override the API base URL for a single call
 SUNSET_TIMES_BASE=https://api.example.com ./sunset-times-cli load 1 sunrise_and_sunset
 
-# 5. No arguments -> interactive REPL
+# 6. No arguments -> interactive REPL
 ./sunset-times-cli
 sunset-times> load 1 sunrise_and_sunset
-sunset-times> :quit
+sunset-times> /quit
 ```
 
 > The rest of this guide follows the [Diátaxis](https://diataxis.fr) framework:
@@ -54,7 +57,7 @@ sunset-times> :quit
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
-   type `:help` for the word and entity lists and `:quit` to leave.
+   type `/help` for the word and entity lists and `/quit` to leave.
 
 That is the whole loop: *build → set key → evaluate AQL expressions*.
 
@@ -90,8 +93,8 @@ evaluated as its own AQL expression:
 ```text
 $ ./sunset-times-cli
 sunset-times> load 1 sunrise_and_sunset
-sunset-times> :help
-sunset-times> :quit
+sunset-times> /help
+sunset-times> /quit
 ```
 
 ### Cross-compile release binaries
@@ -103,7 +106,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 
 ### Discover the available entities
 
-`:help` in the REPL prints the full entity list, or see [Entities](#entities)
+`/help` in the REPL prints the full entity list, or see [Entities](#entities)
 below — this SDK exposes 1 entity.
 
 ## Reference
@@ -129,10 +132,16 @@ The CLI registers these AQL words, each bound to the SDK:
 
 Unset variables fall back to the SDK's built-in defaults.
 
+### CLI flags
+
+- `--help` / `-h` — print usage (words, entities, env vars) and exit.
+
 ### REPL commands
 
-- `:quit` / `:q` / `:exit` — exit the REPL
-- `:help` / `:h` / `:?`     — show the word list, entity list and meta commands
+Meta-commands use the `/` prefix (everything else on a line is evaluated as AQL):
+
+- `/quit` / `/q` / `/exit` — exit the REPL
+- `/help` / `/h` / `/?`     — show the word list, entity list and meta commands
 
 ### Exit codes
 
