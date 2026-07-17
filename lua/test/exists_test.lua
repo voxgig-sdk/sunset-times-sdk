@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- SunsetTimes SDK exists test
 
 local sdk = require("sunset-times_sdk")
 
