@@ -23,8 +23,8 @@ module SunsetTimesTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("SUNSETTIMES_TEST_LIVE")
-    override = getenv("SUNSETTIMES_TEST_OVERRIDE")
+    live = getenv("SUNSET_TIMES_TEST_LIVE")
+    override = getenv("SUNSET_TIMES_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module SunsetTimesTestRunner
       end
     end
 
-    explain = getenv("SUNSETTIMES_TEST_EXPLAIN")
-    m["SUNSETTIMES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("SUNSET_TIMES_TEST_EXPLAIN")
+    m["SUNSET_TIMES_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

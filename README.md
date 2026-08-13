@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = SunsetTimesSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = SunsetTimesSDK.test({
+  entity: {
+    sunrise_and_sunset: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const sunriseandsunset = await client.SunriseAndSunset().load()
-// sunriseandsunset is a bare SunriseAndSunset populated with mock data
+// sunriseandsunset is the SunriseAndSunset entity, populated with mock data
+// — call sunriseandsunset.data() for the record itself
 console.log(sunriseandsunset)
 ```
 
@@ -182,7 +191,7 @@ require_once 'sunsettimes_sdk.php';
 $client = new SunsetTimesSDK();
 
 
-// Load a specific sunriseandsunset (returns the bare record; throws on error)
+// Load a specific sunriseandsunset (returns the ENTITY; call data_get() for the record; throws on error)
 $sunriseandsunset = $client->SunriseAndSunset()->load();
 print_r($sunriseandsunset);
 ```
@@ -210,7 +219,7 @@ require_relative "SunsetTimes_sdk"
 client = SunsetTimesSDK.new
 
 
-# Load a specific sunriseandsunset (returns the bare record; raises on error)
+# Load a specific sunriseandsunset (returns the ENTITY; call data_get for the record)
 sunriseandsunset = client.SunriseAndSunset.load()
 puts sunriseandsunset
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://sunrise-sunset.org/api](https://sunrise-sunset.org/api)
 

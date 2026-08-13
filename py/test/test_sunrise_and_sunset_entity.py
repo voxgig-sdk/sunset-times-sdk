@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from sunsettimes_sdk.utility.voxgig_struct import voxgig_struct as vs
 from sunsettimes_sdk import SunsetTimesSDK
-from core import helpers
+from sunsettimes_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -36,7 +36,7 @@ class TestSunriseAndSunsetEntity:
         # without an *_ENTID env override, those IDs hit the live API and 4xx.
         if setup.get("synthetic_only"):
             pytest.skip("live entity test uses synthetic IDs from fixture — "
-                        "set SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID JSON to run live")
+                        "set SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID JSON to run live")
         client = setup["client"]
 
         # Bootstrap entity data from existing test data.
@@ -83,21 +83,21 @@ def _sunrise_and_sunset_basic_setup(extra):
     # mode is on without a real override, the basic test runs against synthetic
     # IDs from the fixture and 4xx's. We surface this so the test can skip.
     _entid_env_raw = os.environ.get(
-        "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID")
+        "SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID")
     _idmap_overridden = _entid_env_raw is not None and _entid_env_raw.strip().startswith("{")
 
     env = runner.env_override({
-        "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID": idmap,
-        "SUNSETTIMES_TEST_LIVE": "FALSE",
-        "SUNSETTIMES_TEST_EXPLAIN": "FALSE",
+        "SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID": idmap,
+        "SUNSET_TIMES_TEST_LIVE": "FALSE",
+        "SUNSET_TIMES_TEST_EXPLAIN": "FALSE",
     })
 
     idmap_resolved = helpers.to_map(
-        env.get("SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID"))
+        env.get("SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID"))
     if idmap_resolved is None:
         idmap_resolved = helpers.to_map(idmap)
 
-    if env.get("SUNSETTIMES_TEST_LIVE") == "TRUE":
+    if env.get("SUNSET_TIMES_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
             },
@@ -105,13 +105,13 @@ def _sunrise_and_sunset_basic_setup(extra):
         ])
         client = SunsetTimesSDK(helpers.to_map(merged_opts))
 
-    _live = env.get("SUNSETTIMES_TEST_LIVE") == "TRUE"
+    _live = env.get("SUNSET_TIMES_TEST_LIVE") == "TRUE"
     return {
         "client": client,
         "data": entity_data,
         "idmap": idmap_resolved,
         "env": env,
-        "explain": env.get("SUNSETTIMES_TEST_EXPLAIN") == "TRUE",
+        "explain": env.get("SUNSET_TIMES_TEST_EXPLAIN") == "TRUE",
         "live": _live,
         "synthetic_only": _live and not _idmap_overridden,
         "now": int(time.time() * 1000),

@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = SunsetTimesSDK.test()
 
 const sunriseandsunset = await client.SunriseAndSunset().load()
-// sunriseandsunset is a bare entity populated with mock response data
+// sunriseandsunset is the entity, populated with mock response data
+// — call sunriseandsunset.data() for the record itself
 console.log(sunriseandsunset)
 ```
 
@@ -284,7 +285,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `results` |  |
 | `status` |  |
 | `tzid` |  |
 
@@ -311,7 +312,7 @@ Create an instance: `const sunrise_and_sunset = client.SunriseAndSunset()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `Record<string, any>` |  |
+| `results` | `Record<string, any>` |  |
 | `status` | `string` |  |
 | `tzid` | `string` |  |
 

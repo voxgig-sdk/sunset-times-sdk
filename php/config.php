@@ -32,7 +32,7 @@ class SunsetTimesConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'result',
+              'name' => 'results',
               'req' => false,
               'type' => '`$OBJECT`',
               'index$' => 0,
@@ -117,6 +117,7 @@ class SunsetTimesConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/json',
                   'parts' => [

@@ -26,7 +26,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "result",
+						"name": "results",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 0,
@@ -111,6 +111,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/json",
 								"parts": []any{
@@ -133,7 +134,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

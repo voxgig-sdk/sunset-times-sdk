@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ SunsetTimesUtility.registrar = ->(u) {
   u.prepare_params = SunsetTimesUtilities::PrepareParams
   u.prepare_path = SunsetTimesUtilities::PreparePath
   u.prepare_query = SunsetTimesUtilities::PrepareQuery
+  u.graphql_body = SunsetTimesUtilities::GraphqlBody
+  u.graphql_errors = SunsetTimesUtilities::GraphqlErrors
   u.result_basic = SunsetTimesUtilities::ResultBasic
   u.result_body = SunsetTimesUtilities::ResultBody
   u.result_headers = SunsetTimesUtilities::ResultHeaders

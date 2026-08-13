@@ -98,7 +98,7 @@ fmt.Println(sunriseAndSunset.GetName()) // "sunrise_and_sunset"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `map[string]any` | No |  |
+| `results` | `map[string]any` | No |  |
 | `status` | `string` | No |  |
 | `tzid` | `string` | No |  |
 

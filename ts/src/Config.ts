@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'SunsetTimes',
   }
 
 
@@ -56,7 +56,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "result",
+          "name": "results",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 0
@@ -141,6 +141,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/json",
               "parts": [

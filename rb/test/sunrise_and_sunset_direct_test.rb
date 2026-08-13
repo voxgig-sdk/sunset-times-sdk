@@ -66,11 +66,11 @@ def sunrise_and_sunset_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID" => {},
-    "SUNSETTIMES_TEST_LIVE" => "FALSE",
+    "SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID" => {},
+    "SUNSET_TIMES_TEST_LIVE" => "FALSE",
   })
 
-  live = env["SUNSETTIMES_TEST_LIVE"] == "TRUE"
+  live = env["SUNSET_TIMES_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

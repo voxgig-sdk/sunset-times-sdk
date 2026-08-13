@@ -6,13 +6,13 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface SunriseAndSunset {
-  result?: Record<string, any>
+  results?: Record<string, any>
   status?: string
   tzid?: string
 }
 
 export interface SunriseAndSunsetLoadMatch {
-  result?: Record<string, any>
+  results?: Record<string, any>
   status?: string
   tzid?: string
 }

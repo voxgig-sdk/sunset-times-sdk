@@ -10,7 +10,7 @@
 
 # SunriseAndSunset entity data model.
 #
-# @!attribute [rw] result
+# @!attribute [rw] results
 #   @return [Hash, nil]
 #
 # @!attribute [rw] status
@@ -19,7 +19,7 @@
 # @!attribute [rw] tzid
 #   @return [String, nil]
 SunriseAndSunset = Struct.new(
-  :result,
+  :results,
   :status,
   :tzid,
   keyword_init: true
@@ -27,7 +27,7 @@ SunriseAndSunset = Struct.new(
 
 # Request payload for SunriseAndSunset#load.
 #
-# @!attribute [rw] result
+# @!attribute [rw] results
 #   @return [Hash, nil]
 #
 # @!attribute [rw] status
@@ -36,7 +36,7 @@ SunriseAndSunset = Struct.new(
 # @!attribute [rw] tzid
 #   @return [String, nil]
 SunriseAndSunsetLoadMatch = Struct.new(
-  :result,
+  :results,
   :status,
   :tzid,
   keyword_init: true

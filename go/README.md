@@ -258,7 +258,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"result"` |  |
+| `"results"` |  |
 | `"status"` |  |
 | `"tzid"` |  |
 
@@ -285,7 +285,7 @@ Create an instance: `sunriseAndSunset := client.SunriseAndSunset(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `map[string]any` |  |
+| `results` | `map[string]any` |  |
 | `status` | `string` |  |
 | `tzid` | `string` |  |
 

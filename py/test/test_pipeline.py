@@ -16,11 +16,11 @@
 import pytest
 
 from sunsettimes_sdk import SunsetTimesSDK
-from core.error import SunsetTimesError
-from core.result import SunsetTimesResult
-from core.response import SunsetTimesResponse
-from core.spec import SunsetTimesSpec
-from feature.base_feature import SunsetTimesBaseFeature
+from sunsettimes_sdk.core.error import SunsetTimesError
+from sunsettimes_sdk.core.result import SunsetTimesResult
+from sunsettimes_sdk.core.response import SunsetTimesResponse
+from sunsettimes_sdk.core.spec import SunsetTimesSpec
+from sunsettimes_sdk.feature.base_feature import SunsetTimesBaseFeature
 
 
 def _client():

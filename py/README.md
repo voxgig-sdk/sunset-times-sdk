@@ -38,7 +38,7 @@ client = SunsetTimesSDK()
 
 ### 3. Load a sunriseandsunset
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -122,7 +122,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = SunsetTimesSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 sunriseandsunset = client.SunriseAndSunset().load()
 # sunriseandsunset contains the mock response record
 ```
@@ -218,7 +219,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -240,7 +241,7 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `results` |  |
 | `status` |  |
 | `tzid` |  |
 
@@ -267,7 +268,7 @@ Create an instance: `sunrise_and_sunset = client.SunriseAndSunset()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `dict` |  |
+| `results` | `dict` |  |
 | `status` | `str` |  |
 | `tzid` | `str` |  |
 

@@ -7,12 +7,12 @@
 -- edit by hand.
 
 ---@class SunriseAndSunset
----@field result? table
+---@field results? table
 ---@field status? string
 ---@field tzid? string
 
 ---@class SunriseAndSunsetLoadMatch
----@field result? table
+---@field results? table
 ---@field status? string
 ---@field tzid? string
 

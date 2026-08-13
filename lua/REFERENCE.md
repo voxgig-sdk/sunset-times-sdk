@@ -90,7 +90,7 @@ local sunrise_and_sunset = client:SunriseAndSunset(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `table` | No |  |
+| `results` | `table` | No |  |
 | `status` | `string` | No |  |
 | `tzid` | `string` | No |  |
 

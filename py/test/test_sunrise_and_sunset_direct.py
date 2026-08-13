@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from sunsettimes_sdk.utility.voxgig_struct import voxgig_struct as vs
 from sunsettimes_sdk import SunsetTimesSDK
-from core import helpers
+from sunsettimes_sdk.core import helpers
 from test import runner
 
 
@@ -62,11 +62,11 @@ def _sunrise_and_sunset_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "SUNSETTIMES_TEST_SUNRISE_AND_SUNSET_ENTID": {},
-        "SUNSETTIMES_TEST_LIVE": "FALSE",
+        "SUNSET_TIMES_TEST_SUNRISE_AND_SUNSET_ENTID": {},
+        "SUNSET_TIMES_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("SUNSETTIMES_TEST_LIVE") == "TRUE"
+    live = env.get("SUNSET_TIMES_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

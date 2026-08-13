@@ -2,19 +2,19 @@
   "existing": {
     "sunrise_and_sunset": {
       "SUNRISE_AND_SUNSET00": {
-        "result": {},
+        "results": {},
         "status": "s1f",
         "tzid": "s20",
         "id": "SUNRISE_AND_SUNSET00"
       },
       "SUNRISE_AND_SUNSET01": {
-        "result": {},
+        "results": {},
         "status": "s3d",
         "tzid": "s3e",
         "id": "SUNRISE_AND_SUNSET01"
       },
       "SUNRISE_AND_SUNSET02": {
-        "result": {},
+        "results": {},
         "status": "s5b",
         "tzid": "s5c",
         "id": "SUNRISE_AND_SUNSET02"
@@ -24,7 +24,7 @@
   "new": {
     "sunrise_and_sunset": {
       "sunrise_and_sunset_ref01": {
-        "result": {},
+        "results": {},
         "status": "s79",
         "tzid": "s7a"
       }

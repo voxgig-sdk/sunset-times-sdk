@@ -93,7 +93,7 @@ sunrise_and_sunset = client.SunriseAndSunset
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `Hash` | No |  |
+| `results` | `Hash` | No |  |
 | `status` | `String` | No |  |
 | `tzid` | `String` | No |  |
 

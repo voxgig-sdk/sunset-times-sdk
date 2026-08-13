@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# SunsetTimes SDK exists test
 
 import pytest
 from sunsettimes_sdk import SunsetTimesSDK

@@ -27,7 +27,7 @@ module SunsetTimesConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "result",
+              "name" => "results",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 0,
@@ -112,6 +112,7 @@ module SunsetTimesConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/json",
                   "parts" => [

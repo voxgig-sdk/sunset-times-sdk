@@ -34,7 +34,7 @@ client = SunsetTimesSDK.new
 
 ```ruby
 begin
-  # load returns the bare SunriseAndSunset record (raises on error).
+  # load returns the ENTITY — call data_get for the SunriseAndSunset record (raises on error).
   sunriseandsunset = client.SunriseAndSunset.load()
   puts sunriseandsunset
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = SunsetTimesSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 sunriseandsunset = client.SunriseAndSunset.load()
 puts sunriseandsunset
 ```
@@ -234,7 +235,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `results` |  |
 | `status` |  |
 | `tzid` |  |
 
@@ -261,14 +262,14 @@ Create an instance: `sunrise_and_sunset = client.SunriseAndSunset`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `Hash` |  |
+| `results` | `Hash` |  |
 | `status` | `String` |  |
 | `tzid` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare SunriseAndSunset record (raises on error).
+# load returns the ENTITY — call data_get for the SunriseAndSunset record (raises on error).
 sunrise_and_sunset = client.SunriseAndSunset.load()
 ```
 

@@ -225,7 +225,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `result` |  |
+| `results` |  |
 | `status` |  |
 | `tzid` |  |
 
@@ -252,7 +252,7 @@ Create an instance: `local sunrise_and_sunset = client:SunriseAndSunset(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `result` | `table` |  |
+| `results` | `table` |  |
 | `status` | `string` |  |
 | `tzid` | `string` |  |
 

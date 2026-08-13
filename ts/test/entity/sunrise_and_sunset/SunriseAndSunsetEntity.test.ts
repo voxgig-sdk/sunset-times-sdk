@@ -26,8 +26,8 @@ import {
 describe('SunriseAndSunsetEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when SUNSETTIMES_TEST_LIVE=TRUE.
-  afterEach(liveDelay('SUNSETTIMES_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when SUNSET_TIMES_TEST_LIVE=TRUE.
+  afterEach(liveDelay('SUNSET_TIMES_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = SunsetTimesSDK.test()
@@ -62,7 +62,7 @@ describe('SunriseAndSunsetEntity', async () => {
     // LOAD
     const sunrise_and_sunset_ref01_ent = client.SunriseAndSunset()
     const sunrise_and_sunset_ref01_match_dt0: any = {}
-    const sunrise_and_sunset_ref01_data_dt0 = await sunrise_and_sunset_ref01_ent.load(sunrise_and_sunset_ref01_match_dt0)
+    const sunrise_and_sunset_ref01_data_dt0 = (await sunrise_and_sunset_ref01_ent.load(sunrise_and_sunset_ref01_match_dt0)).data()
     assert(null != sunrise_and_sunset_ref01_data_dt0)
 
 

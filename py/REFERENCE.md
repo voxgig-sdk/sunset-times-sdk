@@ -87,7 +87,7 @@ sunrise_and_sunset = client.SunriseAndSunset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `dict` | No |  |
+| `results` | `dict` | No |  |
 | `status` | `str` | No |  |
 | `tzid` | `str` | No |  |
 

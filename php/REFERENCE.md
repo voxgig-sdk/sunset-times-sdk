@@ -92,7 +92,7 @@ $sunrise_and_sunset = $client->SunriseAndSunset();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `array` | No |  |
+| `results` | `array` | No |  |
 | `status` | `string` | No |  |
 | `tzid` | `string` | No |  |
 

@@ -116,7 +116,7 @@ const sunrise_and_sunset = client.SunriseAndSunset()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `result` | `Record<string, any>` | No |  |
+| `results` | `Record<string, any>` | No |  |
 | `status` | `string` | No |  |
 | `tzid` | `string` | No |  |
 

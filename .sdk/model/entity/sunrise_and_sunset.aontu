@@ -6,7 +6,7 @@ main: kit: entity: sunrise_and_sunset: {
 
   fields: [
     {
-      name: "result"
+      name: "results"
       req: false
       type: "`$OBJECT`"
     }

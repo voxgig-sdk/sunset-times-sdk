@@ -15,7 +15,7 @@ declare(strict_types=1);
 /** SunriseAndSunset entity data model. */
 class SunriseAndSunset
 {
-    public ?array $result = null;
+    public ?array $results = null;
     public ?string $status = null;
     public ?string $tzid = null;
 }
@@ -23,7 +23,7 @@ class SunriseAndSunset
 /** Request payload for SunriseAndSunset#load. */
 class SunriseAndSunsetLoadMatch
 {
-    public ?array $result = null;
+    public ?array $results = null;
     public ?string $status = null;
     public ?string $tzid = null;
 }

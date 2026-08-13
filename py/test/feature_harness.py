@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import SunsetTimesControl
-from core.error import SunsetTimesError
-from core.result import SunsetTimesResult
-from core.spec import SunsetTimesSpec
+from sunsettimes_sdk.config import make_config
+from sunsettimes_sdk.features import _make_feature
+from sunsettimes_sdk.core.control import SunsetTimesControl
+from sunsettimes_sdk.core.error import SunsetTimesError
+from sunsettimes_sdk.core.result import SunsetTimesResult
+from sunsettimes_sdk.core.spec import SunsetTimesSpec
 
 
 # True when this SDK was generated with the named feature.

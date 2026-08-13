@@ -26,7 +26,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "result",
+            ["name"] = "results",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 0,
@@ -111,6 +111,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/json",
                 ["parts"] = {
