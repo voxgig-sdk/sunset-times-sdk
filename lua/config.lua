@@ -1,5 +1,8 @@
 -- SunsetTimes SDK configuration
 
+-- Build a fresh, fully materialised config table. Every call rebuilds the
+-- whole structure, so prefer require("config_shared") unless you need a
+-- private copy you intend to mutate.
 local function make_config()
   return {
     main = {
@@ -25,25 +28,16 @@ local function make_config()
       ["sunrise_and_sunset"] = {
         ["fields"] = {
           {
-            ["active"] = true,
             ["name"] = "results",
-            ["req"] = false,
             ["type"] = "`$OBJECT`",
-            ["index$"] = 0,
           },
           {
-            ["active"] = true,
             ["name"] = "status",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 1,
           },
           {
-            ["active"] = true,
             ["name"] = "tzid",
-            ["req"] = false,
             ["type"] = "`$STRING`",
-            ["index$"] = 2,
           },
         },
         ["name"] = "sunrise_and_sunset",
@@ -53,37 +47,29 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["active"] = true,
                 ["args"] = {
                   ["query"] = {
                     {
-                      ["active"] = true,
                       ["kind"] = "query",
                       ["name"] = "callback",
                       ["orig"] = "callback",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "2026-02-15",
                       ["kind"] = "query",
                       ["name"] = "date",
                       ["orig"] = "date",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = 1,
                       ["kind"] = "query",
                       ["name"] = "formatted",
                       ["orig"] = "formatted",
-                      ["reqd"] = false,
                       ["type"] = "`$INTEGER`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = 36.72016,
                       ["kind"] = "query",
                       ["name"] = "lat",
@@ -92,7 +78,6 @@ local function make_config()
                       ["type"] = "`$NUMBER`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = -4.42034,
                       ["kind"] = "query",
                       ["name"] = "lng",
@@ -101,12 +86,10 @@ local function make_config()
                       ["type"] = "`$NUMBER`",
                     },
                     {
-                      ["active"] = true,
                       ["example"] = "UTC",
                       ["kind"] = "query",
                       ["name"] = "tzid",
                       ["orig"] = "tzid",
-                      ["reqd"] = false,
                       ["type"] = "`$STRING`",
                     },
                   },
@@ -131,10 +114,8 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["index$"] = 0,
               },
             },
-            ["key$"] = "load",
           },
         },
         ["relations"] = {

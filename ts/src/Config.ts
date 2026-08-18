@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://api.sunrise-sunset.org',
+    base: "https://api.sunrise-sunset.org",
 
     headers: {
       "content-type": "application/json"
@@ -55,25 +55,16 @@ class Config {
     "sunrise_and_sunset": {
       "fields": [
         {
-          "active": true,
           "name": "results",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 0
+          "type": "`$OBJECT`"
         },
         {
-          "active": true,
           "name": "status",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "tzid",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         }
       ],
       "name": "sunrise_and_sunset",
@@ -83,37 +74,29 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "callback",
                     "orig": "callback",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": "2026-02-15",
                     "kind": "query",
                     "name": "date",
                     "orig": "date",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "formatted",
                     "orig": "formatted",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": 36.72016,
                     "kind": "query",
                     "name": "lat",
@@ -122,7 +105,6 @@ class Config {
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": -4.42034,
                     "kind": "query",
                     "name": "lng",
@@ -131,12 +113,10 @@ class Config {
                     "type": "`$NUMBER`"
                   },
                   {
-                    "active": true,
                     "example": "UTC",
                     "kind": "query",
                     "name": "tzid",
                     "orig": "tzid",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -160,11 +140,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {

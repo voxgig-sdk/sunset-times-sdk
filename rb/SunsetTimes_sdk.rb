@@ -28,7 +28,7 @@ class SunsetTimesSDK
     utility = SunsetTimesUtility.new
     @_utility = utility
 
-    config = SunsetTimesConfig.make_config
+    config = SunsetTimesConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -23,6 +23,7 @@ build = {
   modules = {
     ["sunset-times_sdk"] = "sunset-times_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

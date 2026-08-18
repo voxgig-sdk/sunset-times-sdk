@@ -40,7 +40,7 @@ class SunsetTimesSDK
         $utility = new SunsetTimesUtility();
         $this->_utility = $utility;
 
-        $config = SunsetTimesConfig::make_config();
+        $config = SunsetTimesConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -1,6 +1,20 @@
 # SunsetTimes SDK configuration
 
 module SunsetTimesConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,25 +40,16 @@ module SunsetTimesConfig
         "sunrise_and_sunset" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "results",
-              "req" => false,
               "type" => "`$OBJECT`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "status",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "tzid",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
           ],
           "name" => "sunrise_and_sunset",
@@ -54,37 +59,29 @@ module SunsetTimesConfig
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "callback",
                         "orig" => "callback",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "2026-02-15",
                         "kind" => "query",
                         "name" => "date",
                         "orig" => "date",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => 1,
                         "kind" => "query",
                         "name" => "formatted",
                         "orig" => "formatted",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => 36.72016,
                         "kind" => "query",
                         "name" => "lat",
@@ -93,7 +90,6 @@ module SunsetTimesConfig
                         "type" => "`$NUMBER`",
                       },
                       {
-                        "active" => true,
                         "example" => -4.42034,
                         "kind" => "query",
                         "name" => "lng",
@@ -102,12 +98,10 @@ module SunsetTimesConfig
                         "type" => "`$NUMBER`",
                       },
                       {
-                        "active" => true,
                         "example" => "UTC",
                         "kind" => "query",
                         "name" => "tzid",
                         "orig" => "tzid",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -132,10 +126,8 @@ module SunsetTimesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

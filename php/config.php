@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class SunsetTimesConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -31,25 +54,16 @@ class SunsetTimesConfig
         'sunrise_and_sunset' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'results',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'status',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'tzid',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
           ],
           'name' => 'sunrise_and_sunset',
@@ -59,37 +73,29 @@ class SunsetTimesConfig
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'callback',
                         'orig' => 'callback',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => '2026-02-15',
                         'kind' => 'query',
                         'name' => 'date',
                         'orig' => 'date',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 1,
                         'kind' => 'query',
                         'name' => 'formatted',
                         'orig' => 'formatted',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 36.72016,
                         'kind' => 'query',
                         'name' => 'lat',
@@ -98,7 +104,6 @@ class SunsetTimesConfig
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'example' => -4.42034,
                         'kind' => 'query',
                         'name' => 'lng',
@@ -107,12 +112,10 @@ class SunsetTimesConfig
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 'UTC',
                         'kind' => 'query',
                         'name' => 'tzid',
                         'orig' => 'tzid',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -137,10 +140,8 @@ class SunsetTimesConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [
