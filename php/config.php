@@ -33,6 +33,9 @@ class SunsetTimesConfig
         return [
             "main" => [
                 "name" => "SunsetTimes",
+                "slug" => "sunset-times",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
