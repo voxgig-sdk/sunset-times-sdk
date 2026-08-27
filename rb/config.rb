@@ -28,6 +28,7 @@ module SunsetTimesConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
