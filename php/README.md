@@ -36,7 +36,7 @@ $client = new SunsetTimesSDK();
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the SunriseAndSunset record (throws on error).
-    $sunriseandsunset = $client->SunriseAndSunset()->load();
+    $sunriseandsunset = $client->SunriseAndSunset()->load(["lat" => 1, "lng" => 1]);
     print_r($sunriseandsunset);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $sunriseandsunset = $client->SunriseAndSunset()->load();
+    $sunriseandsunset = $client->SunriseAndSunset()->load(["lat" => 1, "lng" => 1]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,7 +125,7 @@ $client = SunsetTimesSDK::test();
 
 // Entity ops return the ENTITY (throws on error);
 // call data_get() for the mock record.
-$sunriseandsunset = $client->SunriseAndSunset()->load();
+$sunriseandsunset = $client->SunriseAndSunset()->load(["lat" => 1, "lng" => 1]);
 print_r($sunriseandsunset);
 ```
 
@@ -280,8 +280,31 @@ Create an instance: `$sunrise_and_sunset = $client->SunriseAndSunset();`
 
 ```php
 // load() returns the ENTITY — call data_get() for the SunriseAndSunset record (throws on error).
-$sunrise_and_sunset = $client->SunriseAndSunset()->load();
+$sunrise_and_sunset = $client->SunriseAndSunset()->load(["lat" => 1, "lng" => 1]);
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced
@@ -361,7 +384,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $sunriseandsunset = $client->SunriseAndSunset();
-$sunriseandsunset->load();
+$sunriseandsunset->load(["lat" => 1, "lng" => 1]);
 
 // $sunriseandsunset->data_get() now returns the sunriseandsunset data from the last load
 // $sunriseandsunset->match_get() returns the last match criteria

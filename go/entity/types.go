@@ -21,8 +21,11 @@ type SunriseAndSunset struct {
 
 // SunriseAndSunsetLoadMatch is the typed request payload for SunriseAndSunset.LoadTyped.
 type SunriseAndSunsetLoadMatch struct {
-	Results *map[string]any `json:"results,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Callback *string `json:"callback,omitempty"`
+	Date *string `json:"date,omitempty"`
+	Formatted *int `json:"formatted,omitempty"`
+	Lat float64 `json:"lat"`
+	Lng float64 `json:"lng"`
 	Tzid *string `json:"tzid,omitempty"`
 }
 

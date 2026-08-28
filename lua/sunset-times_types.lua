@@ -12,8 +12,11 @@
 ---@field tzid? string
 
 ---@class SunriseAndSunsetLoadMatch
----@field results? table
----@field status? string
+---@field callback? string
+---@field date? string
+---@field formatted? number
+---@field lat number
+---@field lng number
 ---@field tzid? string
 
 local M = {}

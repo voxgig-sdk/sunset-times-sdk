@@ -27,17 +27,29 @@ SunriseAndSunset = Struct.new(
 
 # Request payload for SunriseAndSunset#load.
 #
-# @!attribute [rw] results
-#   @return [Hash, nil]
-#
-# @!attribute [rw] status
+# @!attribute [rw] callback
 #   @return [String, nil]
+#
+# @!attribute [rw] date
+#   @return [String, nil]
+#
+# @!attribute [rw] formatted
+#   @return [Integer, nil]
+#
+# @!attribute [rw] lat
+#   @return [Float]
+#
+# @!attribute [rw] lng
+#   @return [Float]
 #
 # @!attribute [rw] tzid
 #   @return [String, nil]
 SunriseAndSunsetLoadMatch = Struct.new(
-  :results,
-  :status,
+  :callback,
+  :date,
+  :formatted,
+  :lat,
+  :lng,
   :tzid,
   keyword_init: true
 )

@@ -22,7 +22,13 @@ class SunriseAndSunset(TypedDict, total=False):
     tzid: str
 
 
-class SunriseAndSunsetLoadMatch(TypedDict, total=False):
-    results: dict
-    status: str
+class SunriseAndSunsetLoadMatchRequired(TypedDict):
+    lat: float
+    lng: float
+
+
+class SunriseAndSunsetLoadMatch(SunriseAndSunsetLoadMatchRequired, total=False):
+    callback: str
+    date: str
+    formatted: int
     tzid: str

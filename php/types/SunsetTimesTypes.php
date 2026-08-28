@@ -23,8 +23,11 @@ class SunriseAndSunset
 /** Request payload for SunriseAndSunset#load. */
 class SunriseAndSunsetLoadMatch
 {
-    public ?array $results = null;
-    public ?string $status = null;
+    public ?string $callback = null;
+    public ?string $date = null;
+    public ?int $formatted = null;
+    public float $lat;
+    public float $lng;
     public ?string $tzid = null;
 }
 

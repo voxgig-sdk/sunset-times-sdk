@@ -12,8 +12,11 @@ export interface SunriseAndSunset {
 }
 
 export interface SunriseAndSunsetLoadMatch {
-  results?: Record<string, any>
-  status?: string
+  callback?: string
+  date?: string
+  formatted?: number
+  lat: number
+  lng: number
   tzid?: string
 }
 
