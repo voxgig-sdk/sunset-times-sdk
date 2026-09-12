@@ -81,8 +81,10 @@ main: kit: entity: sunrise_and_sunset: {
           }
           method: "GET"
           orig: "/json"
-          parts: [
-            "json"
+          segments: [
+            {
+              lit: "json"
+            }
           ]
           select: {
             exist: [

@@ -113,8 +113,10 @@ module SunsetTimesConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/json",
-                  "parts" => [
-                    "json",
+                  "segments" => [
+                    {
+                      "lit" => "json",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -130,6 +132,9 @@ module SunsetTimesConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "json",
+                  ],
                 },
               ],
             },

@@ -127,8 +127,10 @@ class SunsetTimesConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/json',
-                  'parts' => [
-                    'json',
+                  'segments' => [
+                    [
+                      'lit' => 'json',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -143,6 +145,9 @@ class SunsetTimesConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'json',
                   ],
                 ],
               ],
