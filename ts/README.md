@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { SunsetTimesSDK } from '@voxgig-sdk/sunset-times'
+import { SunsetTimesSDK } from '@voxgig-sdk/sunset-times-sdk'
 
 const client = new SunsetTimesSDK()
 ```
@@ -405,7 +405,7 @@ sunset-times/
 Import the SDK from the package root:
 
 ```ts
-import { SunsetTimesSDK } from '@voxgig-sdk/sunset-times'
+import { SunsetTimesSDK } from '@voxgig-sdk/sunset-times-sdk'
 ```
 
 ### Entity state
