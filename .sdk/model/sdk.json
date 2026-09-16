@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "sunrise_and_sunset": {
           "active": true,
@@ -116,6 +180,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /json",
+                    "json": "{\"operationId\":\"getSunriseSunset\",\"parameters\":[{\"description\":\"Latitude in decimal degrees\",\"example\":36.72016,\"in\":\"query\",\"name\":\"lat\",\"required\":true,\"schema\":{\"format\":\"float\",\"maximum\":90,\"minimum\":-90,\"type\":\"number\"}},{\"description\":\"Longitude in decimal degrees\",\"example\":-4.42034,\"in\":\"query\",\"name\":\"lng\",\"required\":true,\"schema\":{\"format\":\"float\",\"maximum\":180,\"minimum\":-180,\"type\":\"number\"}},{\"description\":\"Date in YYYY-MM-DD format. Also accepts other date formats and relative date formats (e.g., 'today'). Defaults to current date if not provided.\",\"examples\":{\"specific\":{\"summary\":\"Specific date\",\"value\":\"2026-02-15\"},\"today\":{\"summary\":\"Today's date\",\"value\":\"today\"}},\"in\":\"query\",\"name\":\"date\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Callback function name for JSONP response\",\"in\":\"query\",\"name\":\"callback\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"0 or 1 (1 is default). When set to 0, time values will be expressed in ISO 8601 format and day_length will be in seconds.\",\"in\":\"query\",\"name\":\"formatted\",\"required\":false,\"schema\":{\"default\":1,\"enum\":[0,1],\"type\":\"integer\"}},{\"description\":\"A timezone identifier (e.g., UTC, Africa/Lagos, Asia/Hong_Kong, Europe/Lisbon). If provided, times in the response will be referenced to the given timezone.\",\"examples\":{\"asia\":{\"summary\":\"Hong Kong timezone\",\"value\":\"Asia/Hong_Kong\"},\"europe\":{\"summary\":\"Lisbon timezone\",\"value\":\"Europe/Lisbon\"},\"utc\":{\"summary\":\"UTC timezone\",\"value\":\"UTC\"}},\"in\":\"query\",\"name\":\"tzid\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"examples\":{\"formatted\":{\"summary\":\"Formatted response (default)\",\"value\":{\"results\":{\"astronomical_twilight_begin\":\"5:54:14 AM\",\"astronomical_twilight_end\":\"6:38:43 PM\",\"civil_twilight_begin\":\"6:58:14 AM\",\"civil_twilight_end\":\"5:34:43 PM\",\"day_length\":\"9:38:53\",\"nautical_twilight_begin\":\"6:25:47 AM\",\"nautical_twilight_end\":\"6:07:10 PM\",\"solar_noon\":\"12:16:28 PM\",\"sunrise\":\"7:27:02 AM\",\"sunset\":\"5:05:55 PM\"},\"status\":\"OK\",\"tzid\":\"UTC\"}},\"invalidDate\":{\"summary\":\"Invalid date parameter\",\"value\":{\"results\":{},\"status\":\"INVALID_DATE\"}},\"invalidRequest\":{\"summary\":\"Invalid request (missing or invalid lat/lng)\",\"value\":{\"results\":{},\"status\":\"INVALID_REQUEST\"}},\"invalidTzid\":{\"summary\":\"Invalid timezone identifier\",\"value\":{\"results\":{\"astronomical_twilight_begin\":\"5:54:14 AM\",\"astronomical_twilight_end\":\"6:38:43 PM\",\"civil_twilight_begin\":\"6:58:14 AM\",\"civil_twilight_end\":\"5:34:43 PM\",\"day_length\":\"9:38:53\",\"nautical_twilight_begin\":\"6:25:47 AM\",\"nautical_twilight_end\":\"6:07:10 PM\",\"solar_noon\":\"12:16:28 PM\",\"sunrise\":\"7:27:02 AM\",\"sunset\":\"5:05:55 PM\"},\"status\":\"INVALID_TZID\",\"tzid\":\"UTC\"}},\"unformatted\":{\"summary\":\"Unformatted response (formatted=0)\",\"value\":{\"results\":{\"astronomical_twilight_begin\":\"2015-05-21T03:20:49+00:00\",\"astronomical_twilight_end\":\"2015-05-21T21:07:45+00:00\",\"civil_twilight_begin\":\"2015-05-21T04:36:17+00:00\",\"civil_twilight_end\":\"2015-05-21T19:52:17+00:00\",\"day_length\":51444,\"nautical_twilight_begin\":\"2015-05-21T04:00:13+00:00\",\"nautical_twilight_end\":\"2015-05-21T20:28:21+00:00\",\"solar_noon\":\"2015-05-21T12:14:17+00:00\",\"sunrise\":\"2015-05-21T05:05:35+00:00\",\"sunset\":\"2015-05-21T19:22:59+00:00\"},\"status\":\"OK\",\"tzid\":\"UTC\"}},\"unknownError\":{\"summary\":\"Server error\",\"value\":{\"results\":{},\"status\":\"UNKNOWN_ERROR\"}}},\"schema\":{\"oneOf\":[{\"properties\":{\"results\":{\"properties\":{\"astronomical_twilight_begin\":{\"description\":\"Astronomical twilight begin time in formatted string\",\"example\":\"5:54:14 AM\",\"type\":\"string\"},\"astronomical_twilight_end\":{\"description\":\"Astronomical twilight end time in formatted string\",\"example\":\"6:38:43 PM\",\"type\":\"string\"},\"civil_twilight_begin\":{\"description\":\"Civil twilight begin time in formatted string\",\"example\":\"6:58:14 AM\",\"type\":\"string\"},\"civil_twilight_end\":{\"description\":\"Civil twilight end time in formatted string\",\"example\":\"5:34:43 PM\",\"type\":\"string\"},\"day_length\":{\"description\":\"Length of the day in formatted string (e.g., '9:38:53')\",\"example\":\"9:38:53\",\"type\":\"string\"},\"nautical_twilight_begin\":{\"description\":\"Nautical twilight begin time in formatted string\",\"example\":\"6:25:47 AM\",\"type\":\"string\"},\"nautical_twilight_end\":{\"description\":\"Nautical twilight end time in formatted string\",\"example\":\"6:07:10 PM\",\"type\":\"string\"},\"solar_noon\":{\"description\":\"Solar noon time in formatted string\",\"example\":\"12:16:28 PM\",\"type\":\"string\"},\"sunrise\":{\"description\":\"Sunrise time in formatted string (e.g., '7:27:02 AM')\",\"example\":\"7:27:02 AM\",\"type\":\"string\"},\"sunset\":{\"description\":\"Sunset time in formatted string (e.g., '5:05:55 PM')\",\"example\":\"5:05:55 PM\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"description\":\"Status of the API request\",\"enum\":[\"OK\",\"INVALID_REQUEST\",\"INVALID_DATE\",\"UNKNOWN_ERROR\",\"INVALID_TZID\"],\"type\":\"string\"},\"tzid\":{\"description\":\"Timezone identifier used for the response times\",\"example\":\"UTC\",\"type\":\"string\"}},\"required\":[\"results\",\"status\"],\"type\":\"object\"},{\"properties\":{\"results\":{\"properties\":{\"astronomical_twilight_begin\":{\"description\":\"Astronomical twilight begin time in ISO 8601 format\",\"example\":\"2015-05-21T03:20:49+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"astronomical_twilight_end\":{\"description\":\"Astronomical twilight end time in ISO 8601 format\",\"example\":\"2015-05-21T21:07:45+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"civil_twilight_begin\":{\"description\":\"Civil twilight begin time in ISO 8601 format\",\"example\":\"2015-05-21T04:36:17+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"civil_twilight_end\":{\"description\":\"Civil twilight end time in ISO 8601 format\",\"example\":\"2015-05-21T19:52:17+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"day_length\":{\"description\":\"Length of the day in seconds\",\"example\":51444,\"type\":\"integer\"},\"nautical_twilight_begin\":{\"description\":\"Nautical twilight begin time in ISO 8601 format\",\"example\":\"2015-05-21T04:00:13+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"nautical_twilight_end\":{\"description\":\"Nautical twilight end time in ISO 8601 format\",\"example\":\"2015-05-21T20:28:21+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"solar_noon\":{\"description\":\"Solar noon time in ISO 8601 format\",\"example\":\"2015-05-21T12:14:17+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"sunrise\":{\"description\":\"Sunrise time in ISO 8601 format\",\"example\":\"2015-05-21T05:05:35+00:00\",\"format\":\"date-time\",\"type\":\"string\"},\"sunset\":{\"description\":\"Sunset time in ISO 8601 format\",\"example\":\"2015-05-21T19:22:59+00:00\",\"format\":\"date-time\",\"type\":\"string\"}},\"type\":\"object\"},\"status\":{\"description\":\"Status of the API request\",\"enum\":[\"OK\",\"INVALID_REQUEST\",\"INVALID_DATE\",\"UNKNOWN_ERROR\",\"INVALID_TZID\"],\"type\":\"string\"},\"tzid\":{\"description\":\"Timezone identifier used for the response times\",\"example\":\"UTC\",\"type\":\"string\"}},\"required\":[\"results\",\"status\"],\"type\":\"object\"}]}}},\"description\":\"Successful response with sunrise and sunset times\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/json",
@@ -148,13 +218,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -245,6 +525,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -299,6 +675,48 @@
         "website": "https://sunrise-sunset.org/api"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -853,6 +1271,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -894,7 +1313,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

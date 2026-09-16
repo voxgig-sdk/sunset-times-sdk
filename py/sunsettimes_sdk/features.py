@@ -1,12 +1,18 @@
 # SunsetTimes SDK feature factory
 
 from sunsettimes_sdk.feature.base_feature import SunsetTimesBaseFeature
+from sunsettimes_sdk.feature.ratelimit_feature import SunsetTimesRatelimitFeature
+from sunsettimes_sdk.feature.retry_feature import SunsetTimesRetryFeature
 from sunsettimes_sdk.feature.test_feature import SunsetTimesTestFeature
+from sunsettimes_sdk.feature.timeout_feature import SunsetTimesTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: SunsetTimesBaseFeature(),
+    "ratelimit": lambda: SunsetTimesRatelimitFeature(),
+    "retry": lambda: SunsetTimesRetryFeature(),
     "test": lambda: SunsetTimesTestFeature(),
+    "timeout": lambda: SunsetTimesTimeoutFeature(),
 }
 
 

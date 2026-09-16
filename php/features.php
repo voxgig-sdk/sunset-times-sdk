@@ -4,7 +4,10 @@ declare(strict_types=1);
 // SunsetTimes SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class SunsetTimesFeatures
@@ -14,8 +17,14 @@ class SunsetTimesFeatures
         switch ($name) {
             case "base":
                 return new SunsetTimesBaseFeature();
+            case "ratelimit":
+                return new SunsetTimesRatelimitFeature();
+            case "retry":
+                return new SunsetTimesRetryFeature();
             case "test":
                 return new SunsetTimesTestFeature();
+            case "timeout":
+                return new SunsetTimesTimeoutFeature();
             default:
                 return new SunsetTimesBaseFeature();
         }
@@ -31,7 +40,10 @@ class SunsetTimesFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
