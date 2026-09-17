@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      sunrise_and_sunset: {
-      },
-
+        sunrise_and_sunset: {
+        },
+  
     }
   }
 

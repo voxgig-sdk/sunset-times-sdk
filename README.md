@@ -105,12 +105,12 @@ local result, err = client:SunriseAndSunset():load({ lat = 1, lng = 1 })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/sunset-times-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/releases) |
-| Python | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/releases) |
-| PHP | `voxgig-sdk/sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/releases) |
+| TypeScript | `@voxgig-sdk/sunset-times-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
+| Python | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
+| PHP | `voxgig-sdk/sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/sunset-times-sdk/go` | `go get github.com/voxgig-sdk/sunset-times-sdk/go@latest` |
-| Ruby | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/releases) |
-| Lua | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/releases) |
+| Ruby | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
+| Lua | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/sunset-times-sdk/go-cli` | `go install github.com/voxgig-sdk/sunset-times-sdk/go-cli/cmd/sunset-times@latest` |
 | Go MCP server | `github.com/voxgig-sdk/sunset-times-sdk/go-mcp` | `go get github.com/voxgig-sdk/sunset-times-sdk/go-mcp@latest` |
 
