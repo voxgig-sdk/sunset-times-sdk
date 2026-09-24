@@ -1,0 +1,28 @@
+# BasicSunriseAndSunsetFlow
+
+main: kit: flow: BasicSunriseAndSunsetFlow:
+{
+  entity: "sunrise_and_sunset",
+  kind: "basic",
+  name: "BasicSunriseAndSunsetFlow",
+  step: [
+    {
+      i: {
+        ref: "sunrise_and_sunset_ref01",
+        srcdatavar: "sunrise_and_sunset_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-sunrise_and_sunset_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSunriseAndSunsetFlow"
+}

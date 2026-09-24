@@ -99,14 +99,17 @@ module SunsetTimesConfig
           "fields" => [
             {
               "name" => "results",
+              "title" => "Results",
               "type" => "`$OBJECT`",
             },
             {
               "name" => "status",
+              "title" => "Status",
               "type" => "`$STRING`",
             },
             {
               "name" => "tzid",
+              "title" => "Tzid",
               "type" => "`$STRING`",
             },
           ],
@@ -117,53 +120,6 @@ module SunsetTimesConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "query" => [
-                      {
-                        "kind" => "query",
-                        "name" => "callback",
-                        "orig" => "callback",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => "2026-02-15",
-                        "kind" => "query",
-                        "name" => "date",
-                        "orig" => "date",
-                        "type" => "`$STRING`",
-                      },
-                      {
-                        "example" => 1,
-                        "kind" => "query",
-                        "name" => "formatted",
-                        "orig" => "formatted",
-                        "type" => "`$INTEGER`",
-                      },
-                      {
-                        "example" => 36.72016,
-                        "kind" => "query",
-                        "name" => "lat",
-                        "orig" => "lat",
-                        "reqd" => true,
-                        "type" => "`$NUMBER`",
-                      },
-                      {
-                        "example" => -4.42034,
-                        "kind" => "query",
-                        "name" => "lng",
-                        "orig" => "lng",
-                        "reqd" => true,
-                        "type" => "`$NUMBER`",
-                      },
-                      {
-                        "example" => "UTC",
-                        "kind" => "query",
-                        "name" => "tzid",
-                        "orig" => "tzid",
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/json",
@@ -172,6 +128,61 @@ module SunsetTimesConfig
                       "lit" => "json",
                     },
                   ],
+                  "parts" => [
+                    "json",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "query" => [
+                      {
+                        "name" => "callback",
+                        "orig" => "callback",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                      },
+                      {
+                        "name" => "date",
+                        "orig" => "date",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "2026-02-15",
+                      },
+                      {
+                        "name" => "formatted",
+                        "orig" => "formatted",
+                        "type" => "`$INTEGER`",
+                        "kind" => "query",
+                        "example" => 1,
+                      },
+                      {
+                        "name" => "lat",
+                        "orig" => "lat",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                        "reqd" => true,
+                        "example" => 36.72016,
+                      },
+                      {
+                        "name" => "lng",
+                        "orig" => "lng",
+                        "type" => "`$NUMBER`",
+                        "kind" => "query",
+                        "reqd" => true,
+                        "example" => -4.42034,
+                      },
+                      {
+                        "name" => "tzid",
+                        "orig" => "tzid",
+                        "type" => "`$STRING`",
+                        "kind" => "query",
+                        "example" => "UTC",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "callback",
@@ -182,13 +193,6 @@ module SunsetTimesConfig
                       "tzid",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "json",
-                  ],
                 },
               ],
             },

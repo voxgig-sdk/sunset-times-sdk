@@ -91,14 +91,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "results",
+						"title": "Results",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "status",
+						"title": "Status",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tzid",
+						"title": "Tzid",
 						"type": "`$STRING`",
 					},
 				},
@@ -109,59 +112,67 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "callback",
-											"orig": "callback",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "2026-02-15",
-											"kind": "query",
-											"name": "date",
-											"orig": "date",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "formatted",
-											"orig": "formatted",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 36.72016,
-											"kind": "query",
-											"name": "lat",
-											"orig": "lat",
-											"reqd": true,
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"example": -4.42034,
-											"kind": "query",
-											"name": "lng",
-											"orig": "lng",
-											"reqd": true,
-											"type": "`$NUMBER`",
-										},
-										map[string]any{
-											"example": "UTC",
-											"kind": "query",
-											"name": "tzid",
-											"orig": "tzid",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/json",
 								"segments": []any{
 									map[string]any{
 										"lit": "json",
+									},
+								},
+								"parts": []any{
+									"json",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "callback",
+											"orig": "callback",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "date",
+											"orig": "date",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "2026-02-15",
+										},
+										map[string]any{
+											"name": "formatted",
+											"orig": "formatted",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "lat",
+											"orig": "lat",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"reqd": true,
+											"example": 36.72016,
+										},
+										map[string]any{
+											"name": "lng",
+											"orig": "lng",
+											"type": "`$NUMBER`",
+											"kind": "query",
+											"reqd": true,
+											"example": -4.42034,
+										},
+										map[string]any{
+											"name": "tzid",
+											"orig": "tzid",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "UTC",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -173,13 +184,6 @@ func MakeConfig() map[string]any {
 										"lng",
 										"tzid",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"json",
 								},
 							},
 						},

@@ -1,7 +1,7 @@
 // Typed models for the SunsetTimes SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,9 +14,6 @@ import (
 
 // SunriseAndSunset is the typed data model for the sunrise_and_sunset entity.
 type SunriseAndSunset struct {
-	Results *map[string]any `json:"results,omitempty"`
-	Status *string `json:"status,omitempty"`
-	Tzid *string `json:"tzid,omitempty"`
 }
 
 // SunriseAndSunsetLoadMatch is the typed request payload for SunriseAndSunset.LoadTyped.

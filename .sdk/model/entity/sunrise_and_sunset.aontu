@@ -1,0 +1,118 @@
+# Entity: sunrise_and_sunset
+
+main: kit: entity: sunrise_and_sunset: {
+
+  alias: field: {}
+
+  fields: {
+    results: {
+      h: "Results"
+      n: "results"
+      r: false
+      t: "`$OBJECT`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: false
+      t: "`$STRING`"
+    }
+    tzid: {
+      h: "Tzid"
+      n: "tzid"
+      r: false
+      t: "`$STRING`"
+    }
+  }
+
+  name: "sunrise_and_sunset"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "callback"
+                or: "callback"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2026-02-15"
+                k: "query"
+                n: "date"
+                or: "date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "formatted"
+                or: "formatted"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 36.72016
+                k: "query"
+                n: "lat"
+                or: "lat"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                ex: -4.42034
+                k: "query"
+                n: "lng"
+                or: "lng"
+                r: true
+                t: "`$NUMBER`"
+              }
+              {
+                ex: "UTC"
+                k: "query"
+                n: "tzid"
+                or: "tzid"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/json"
+          q: {
+            exist: [
+              "callback"
+              "date"
+              "formatted"
+              "lat"
+              "lng"
+              "tzid"
+            ]
+          }
+          s: [
+            {
+              lit: "json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
