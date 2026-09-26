@@ -106,11 +106,11 @@ local result, err = client:SunriseAndSunset():load({ lat = 1, lng = 1 })
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/sunset-times-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
-| Python | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
-| PHP | `voxgig-sdk/sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
+| Python | `voxgig-sdk-sunset-times-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
+| PHP | `voxgig-sdk/sunset-times-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/sunset-times-sdk/go` | `go get github.com/voxgig-sdk/sunset-times-sdk/go@latest` |
-| Ruby | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
-| Lua | `voxgig-sdk-sunset-times` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
+| Ruby | `voxgig-sdk-sunset-times-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
+| Lua | `voxgig-sdk-sunset-times-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/sunset-times-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/sunset-times-sdk/go-cli` | `go install github.com/voxgig-sdk/sunset-times-sdk/go-cli/cmd/sunset-times@latest` |
 | Go MCP server | `github.com/voxgig-sdk/sunset-times-sdk/go-mcp` | `go get github.com/voxgig-sdk/sunset-times-sdk/go-mcp@latest` |
 
@@ -340,10 +340,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
