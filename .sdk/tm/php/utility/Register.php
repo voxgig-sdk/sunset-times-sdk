@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 SunsetTimesUtility::setRegistrar(function (SunsetTimesUtility $u): void {
     $u->clean = [SunsetTimesClean::class, 'call'];
+    $u->clean_add = [SunsetTimesClean::class, 'add'];
+    $u->clean_explain = [SunsetTimesDone::class, 'clean_explain'];
     $u->done = [SunsetTimesDone::class, 'call'];
     $u->make_error = [SunsetTimesMakeError::class, 'call'];
     $u->feature_add = [SunsetTimesFeatureAdd::class, 'call'];

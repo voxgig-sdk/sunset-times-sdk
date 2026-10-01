@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 SunsetTimesUtility.registrar = ->(u) {
   u.clean = SunsetTimesUtilities::Clean
+  u.clean_add = SunsetTimesUtilities::CleanAdd
+  u.clean_explain = SunsetTimesUtilities::CleanExplain
   u.done = SunsetTimesUtilities::Done
   u.make_error = SunsetTimesUtilities::MakeError
   u.feature_add = SunsetTimesUtilities::FeatureAdd
