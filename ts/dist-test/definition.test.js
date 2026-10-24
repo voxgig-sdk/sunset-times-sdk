@@ -16,14 +16,18 @@ const PLAN = [
         "path": "/json",
         "args": [],
         "select": {
-            "callback": "v1",
-            "date": "v1",
-            "formatted": "v1",
             "lat": 36.72016,
             "lng": -4.42034,
-            "tzid": "v1"
+            "callback": "v1",
+            "date": "2026-02-15",
+            "formatted": 1,
+            "tzid": "UTC"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "lat",
             "lng",
@@ -31,6 +35,32 @@ const PLAN = [
             "callback",
             "formatted",
             "tzid"
+        ],
+        "queryArgs": [
+            {
+                "name": "callback",
+                "wire": "callback"
+            },
+            {
+                "name": "date",
+                "wire": "date"
+            },
+            {
+                "name": "formatted",
+                "wire": "formatted"
+            },
+            {
+                "name": "lat",
+                "wire": "lat"
+            },
+            {
+                "name": "lng",
+                "wire": "lng"
+            },
+            {
+                "name": "tzid",
+                "wire": "tzid"
+            }
         ],
         "auth": null,
         "status": 200,

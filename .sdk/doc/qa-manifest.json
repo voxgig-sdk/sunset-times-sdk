@@ -3,5 +3,14 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Production server",
+      "Provides sunset and sunrise times for a given latitude and longitude using a simple REST API. Attribution is required when using this API.",
+      "Status of the API request",
+      "Successful response with sunrise and sunset times",
+      "Timezone identifier used for the response times"
+    ]
+  }
 }

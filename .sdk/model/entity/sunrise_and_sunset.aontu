@@ -91,13 +91,13 @@ main: kit: entity: sunrise_and_sunset: {
           o: "/json"
           q: {
             exist: [
-              "callback"
-              "date"
-              "formatted"
               "lat"
               "lng"
-              "tzid"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

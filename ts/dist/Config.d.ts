@@ -57,6 +57,7 @@ declare class Config {
             };
             optspec: {
                 clearTimer: string;
+                now: string;
                 setTimer: string;
             };
             strict: boolean;
@@ -105,6 +106,7 @@ declare class Config {
                                 kind: string;
                                 example?: undefined;
                                 reqd?: undefined;
+                                field?: undefined;
                             } | {
                                 name: string;
                                 orig: string;
@@ -112,6 +114,7 @@ declare class Config {
                                 kind: string;
                                 example: string;
                                 reqd?: undefined;
+                                field?: undefined;
                             } | {
                                 name: string;
                                 orig: string;
@@ -119,6 +122,7 @@ declare class Config {
                                 kind: string;
                                 example: number;
                                 reqd?: undefined;
+                                field?: undefined;
                             } | {
                                 name: string;
                                 orig: string;
@@ -126,10 +130,23 @@ declare class Config {
                                 kind: string;
                                 reqd: boolean;
                                 example: number;
+                                field?: undefined;
+                            } | {
+                                name: string;
+                                orig: string;
+                                type: string;
+                                kind: string;
+                                example: string;
+                                field: boolean;
+                                reqd?: undefined;
                             })[];
                         };
                         select: {
                             exist: string[];
+                        };
+                        response: {
+                            kind: string;
+                            media: string;
                         };
                     }[];
                 };

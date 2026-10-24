@@ -79,6 +79,7 @@ module SunsetTimesConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -180,18 +181,19 @@ module SunsetTimesConfig
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "UTC",
+                        "field" => true,
                       },
                     ],
                   },
                   "select" => {
                     "exist" => [
-                      "callback",
-                      "date",
-                      "formatted",
                       "lat",
                       "lng",
-                      "tzid",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

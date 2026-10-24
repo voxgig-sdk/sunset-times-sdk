@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -197,18 +198,19 @@ def make_config():
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "UTC",
+                      "field": True,
                     },
                   ],
                 },
                 "select": {
                   "exist": [
-                    "callback",
-                    "date",
-                    "formatted",
                     "lat",
                     "lng",
-                    "tzid",
                   ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -212,19 +213,20 @@ class Config {
                     "orig": "tzid",
                     "type": "`$STRING`",
                     "kind": "query",
-                    "example": "UTC"
+                    "example": "UTC",
+                    "field": true
                   }
                 ]
               },
               "select": {
                 "exist": [
-                  "callback",
-                  "date",
-                  "formatted",
                   "lat",
-                  "lng",
-                  "tzid"
+                  "lng"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
